@@ -1,0 +1,25 @@
+<div class="about-section" id="About">
+    <h1 class="">{{myPortfolio.name}}</h1>
+    <h4 class="">{{myPortfolio.title1}} - {{myPortfolio.title2}}</h4>
+    <div>
+        <h3>Experiencia</h3>
+        <ul>
+            <li class="row" *ngFor="let exp of myExperienceList">
+                <p class="col-2">{{exp.jobYear}}</p>
+                <p class="col-3">{{exp.jobPosition}}</p>
+                <p class="col-3">{{exp.jobCompany}}</p>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <h3>Educación</h3>
+        <ul>
+            <li class="row" *ngFor="let edu of myEducationList">
+                <p class="col-2">{{edu.eduYear}}</p>
+                <p class="col-3">{{edu.eduTitle}}</p>
+                <p class="col-3">{{edu.eduInst}}</p>
+                <img class="col-2" [src]="edu.eduImg" />
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+.badges {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 2em;
+    color: orange;
+    text-shadow: 1px 1px 1px black;
+    padding-top: 20%;
+    line-height: 3em;
+}
+
+.badges>i {
+    margin-left: .5em;
+}
+
+span {
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    font-size: 12px;
+}
+
+#skillrow {
+    padding: 0 -25px 0 -25px
+}

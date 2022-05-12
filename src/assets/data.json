@@ -1,0 +1,64 @@
+{
+    "name": "Renato Servadei",
+    "title1": "FullStack Developer Jr (en curso)",
+    "title2": "Abogado",
+    "Experiencia": [{
+            "jobYear": "2014-2022",
+            "jobPosition": "Abogado",
+            "jobCompany": "Estudio propio"
+        },
+
+        {
+            "jobYear": "2004-2014",
+            "jobPosition": "Abogado Particular",
+            "jobCompany": "Estudio Juridico Catterino"
+        },
+        {
+            "jobYear": "2001-2004",
+            "jobPosition": "Prosecretario",
+            "jobCompany": "Asesoría de Incapaces n° 1, Dpto. Judicial San Martín, PBA"
+        }
+    ],
+    "Educacion": [{
+            "eduYear": "2021/22",
+            "eduTitle": "FullStack Developer Jr (en curso)",
+            "eduInst": "Argentina Programa",
+            "eduImg": "../../assets/APLogo-20-20.png"
+        },
+        {
+            "eduYear": "2000",
+            "eduTitle": "Abogado",
+            "eduInst": "UBA",
+            "eduImg": "../../assets/Logo-UBA-nuevo-blanco.png"
+        }
+    ],
+    "BannerImg": "../../assets/zx banner.jpg",
+    "Projects": [{
+            "projTitle": "Calculadora",
+            "projDesc": "simple calculadora hecha utilizando HTML, CSS y JS",
+            "projImg": "../../assets/calculadora.jpg",
+            "projRepo": "https://github.com/Renato-Servadei/Calculator.git",
+            "projPage": "https://renato-servadei.github.io/Calculator/"
+        },
+        {
+            "projTitle": "Selector de colores",
+            "projDesc": "elegir colores de fondo random usando HTML, CSS and JS",
+            "projImg": "../../assets/color picker.jpg",
+            "projRepo": "https://github.com/Renato-Servadei/Color-Picker",
+            "projPage": "https://renato-servadei.github.io/Color-Picker/hex.html"
+        },
+
+        {
+            "projTitle": "Batería",
+            "projDesc": "Tocar la batería con el teclado. HTML, CSS y JS",
+            "projImg": "../../assets/drumkit.png",
+            "projRepo": "https://github.com/Renato-Servadei/DrumKit",
+            "projPage": "https://renato-servadei.github.io/DrumKit/"
+        }
+    ],
+
+    "Skills": [{
+        "Hard": [],
+        "Soft": []
+    }]
+}

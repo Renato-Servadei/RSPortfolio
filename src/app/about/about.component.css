@@ -1,0 +1,17 @@
+.about-section {
+    height: 100vh;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    background: linear-gradient(to bottom, rgb(77, 77, 77) 0%, rgba(130, 130, 130, 0.9) 75%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+h4,
+li {
+    margin-left: 10%;
+    list-style-type: none;
+}
+
+h1,
+h3 {
+    margin-left: 5%;
+}
