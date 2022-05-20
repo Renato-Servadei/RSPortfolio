@@ -1,0 +1,10 @@
+.card-group {
+    height: 100vh;
+    padding-top: 5em;
+    background: linear-gradient(to top, #000 0%, rgba(0, 0, 0, 0.9) 75%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.card>img {
+    height: 15em;
+    width: auto;
+}

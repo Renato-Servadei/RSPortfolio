@@ -1,0 +1,8 @@
+.nav-link {
+    color: #FFF;
+}
+
+.nav-link:hover,
+.nav-item:hover {
+    color: orange;
+}

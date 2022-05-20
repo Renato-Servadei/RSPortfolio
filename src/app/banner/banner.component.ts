@@ -14,9 +14,10 @@ export class BannerComponent implements OnInit {
   constructor(private portfolioData: PortfolioDataService) { }
 
   ngOnInit(): void {
+    
     this.portfolioData.getData().subscribe(data =>{
       this.myPortfolio = data;
-
+      console.log(data)
     });
   }
 
