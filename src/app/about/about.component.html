@@ -1,25 +1,12 @@
-<div class="about-section" id="About">
-    <h1 class="">{{myPortfolio.name}}</h1>
-    <h4 class="">{{myPortfolio.title1}} - {{myPortfolio.title2}}</h4>
-    <div>
-        <h3>Experiencia</h3>
-        <ul>
-            <li class="row" *ngFor="let exp of myExperienceList">
-                <p class="col-2">{{exp.jobYear}}</p>
-                <p class="col-3">{{exp.jobPosition}}</p>
-                <p class="col-3">{{exp.jobCompany}}</p>
-            </li>
-        </ul>
+<app-navbar></app-navbar>
+<div class="About">
+    <div class="mx-auto text-center pb-5">
+        <h1 class="">{{myPortfolio.name}}</h1>
+        <h5 class="">{{myPortfolio.title1}} - {{myPortfolio.title2}}</h5>
     </div>
-    <div>
-        <h3>Educación</h3>
-        <ul>
-            <li class="row" *ngFor="let edu of myEducationList">
-                <p class="col-2">{{edu.eduYear}}</p>
-                <p class="col-3">{{edu.eduTitle}}</p>
-                <p class="col-3">{{edu.eduInst}}</p>
-                <img class="col-2" [src]="edu.eduImg" />
-            </li>
-        </ul>
+    <div class="d-flex flex-row justify-content-center align-items-baseline mt-5 pt-4" id="links">
+        <h3><a class="nav-link" routerLink="/educacion">Educación</a></h3>
+        <h3><a class="nav-link" routerLink="/experiencia">Experiencia</a></h3>
+        <h3><a class="nav-link" routerLink="/certificaciones">Certificaciones</a></h3>
     </div>
 </div>

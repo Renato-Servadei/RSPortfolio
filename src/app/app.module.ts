@@ -8,11 +8,16 @@ import { BannerComponent } from './banner/banner.component';
 import { AboutComponent } from './about/about.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { SkillsComponent } from './skills/skills.component';
-import { PortfolioDataService } from './portfolio-data.service';
-import { HttpClientModule } from '@angular/common/http';
+import { PortfolioDataService } from './servicios/portfolio-data.service';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EducacionComponent } from './about/educacion/educacion.component';
+import { ExperienciaComponent } from './about/experiencia/experiencia.component';
+import { CertificacionesComponent } from './about/certificaciones/certificaciones.component';
+import { PortfolioComponent } from './portfolio/portfolio.component';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +28,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProjectsComponent,
     SkillsComponent,
     ContactComponent,
-    LoginComponent
+    LoginComponent,
+    EducacionComponent,
+    ExperienciaComponent,
+    CertificacionesComponent,
+    PortfolioComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +40,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [PortfolioDataService],
+  providers: [PortfolioDataService ],//, {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi : true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

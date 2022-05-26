@@ -1,10 +1,19 @@
-<form>
-    <div class="form-group">
-        <label for="formGroupExampleInput">Example label</label>
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+<app-navbar></app-navbar>
+
+<body id="contact-body">
+    <div id="contact-card" class="card text-center mx-auto" style="width: 25rem;">
+        <div class="card-header">
+            <h1>Contacto</h1>
+            <form>
+                <div class="form-group mb-3">
+                    <label for="formGroupExampleInput">Correo electrónico de contacto</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="nombre@correo.com">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput2">Deje su comentario</label>
+                    <textarea class="form-control" rows="7" aria-label="With textarea" id="formGroupExampleInput2"></textarea>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="formGroupExampleInput2">Another label</label>
-        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
-    </div>
-</form>
+</body>

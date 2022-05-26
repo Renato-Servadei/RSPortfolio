@@ -1,0 +1,17 @@
+<app-navbar></app-navbar>
+<div class="exp">
+    <div>
+        <ul>
+            <li class="row" *ngFor="let exp of myExperienciaList">
+                <p class="col-2">{{exp.jobYear}}</p>
+                <p class="col-3">{{exp.jobPosition}}</p>
+                <p class="col-3">{{exp.jobCompany}}</p>
+            </li>
+        </ul>
+    </div>
+    <div class="d-flex flex-row justify-content-center align-items-baseline mt-5 pt-4">
+        <h3><a class="nav-link" routerLink="/educacion">Educación</a></h3>
+        <h3><a class="nav-link" routerLink="/certificaciones">Certificaciones</a></h3>
+        <h3><a class="nav-link" routerLink="/about">Volver</a></h3>
+    </div>
+</div>

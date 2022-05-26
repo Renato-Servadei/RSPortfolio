@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PortfolioDataService } from '../portfolio-data.service';
+import { PortfolioDataService } from '../servicios/portfolio-data.service';
 
 @Component({
   selector: 'app-about',
@@ -10,7 +10,7 @@ export class AboutComponent implements OnInit {
 
   myPortfolio: any;
   myExperienceList: any;
-  myEducationList: any;
+
 
   constructor(private portfolioData: PortfolioDataService) { }
 
@@ -21,9 +21,7 @@ export class AboutComponent implements OnInit {
      this.portfolioData.getData().subscribe(data =>{
        this.myExperienceList = data.Experiencia
      })
-     this.portfolioData.getData().subscribe(data =>{
-      this.myEducationList = data.Educacion
-    })
+     
 
   }
 
