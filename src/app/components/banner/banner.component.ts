@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { PortfolioDataService } from '../servicios/portfolio-data.service';
+import { PortfolioDataService } from '../../servicios/portfolio-data.service';
 
 @Component({
   selector: 'app-banner',
