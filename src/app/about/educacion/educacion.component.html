@@ -2,7 +2,7 @@
 <div>
     <div class="text-center">
         <button type="button" class="btn btn-success">
-            <a class="nav-link">añandir educación 
+            <a class="nav-link">añadir educación 
                 <span class="sr-only">(current)</span>
             </a>
         </button>
@@ -10,12 +10,12 @@
 </div>
 <div class="edu">
     <ul>
-        <li class="row mt-4 mb-4 ml-4 text-center" *ngFor="let edu of myEducationList">
-            <p class="col-2 mb-5">{{edu.eduYear}}</p>
-            <p class="col-2 mb-5">{{edu.eduTitle}}</p>
-            <p class="col-2 mb-5">{{edu.eduInst}}</p>
-            <img class="col-2" [src]="edu.eduImg" height="50px" />
-            <p class="col-1"><a class="btn btn-outline-light tooltips" data-placement="left" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil fa2-xs"></i></a>
+        <li class="row " *ngFor="let edu of myEducationList">
+            <p class="col pt-2">{{edu.eduYear}}</p>
+            <p class="col pt-2">{{edu.eduTitle}}</p>
+            <p class="col mb-5 pt-2">{{edu.eduInst}}</p>
+
+            <p class="col"><a class="btn btn-outline-light tooltips" data-placement="left" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil fa2-xs"></i></a>
                 <a class="btn btn-outline-light tooltips" data-placement="right" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-times fa2-xs"></i></a></p>
         </li>
     </ul>

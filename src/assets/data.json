@@ -57,8 +57,30 @@
         }
     ],
 
-    "Skills": [{
-        "Hard": [],
-        "Soft": []
-    }]
+    "Hard": [{ "hardIcon": "fa-brands fa-js fa-5x", "hardName": "JavaScript" },
+        { "hardIcon": "fa-brands fa-css3 fa-5x", "hardName": "CSS" },
+        { "hardIcon": "fa-brands fa-bootstrap fa-5x", "hardName": "Bootstrap" },
+        { "hardIcon": "fa-brands fa-angular fa-5x", "hardName": "Angular" },
+        { "hardIcon": "fa-brands fa-git-alt fa-5x", "hardName": "Git" },
+        { "hardIcon": "fa-brands fa-html5 fa-5x", "hardName": "HTML" }
+    ],
+
+    "Soft": [{ "softIcon": "fa-brands fa-js fa-5x", "softName": "Creatividad" },
+        { "softIcon": "fa-brands fa-js fa-5x", "softName": "Trabajo en Equipo" },
+        { "softIcon": "fa-brands fa-js fa-5x", "softName": "Empatía" },
+        { "softIcon": "fa-brands fa-js fa-5x", "softName": "Adaptabilidad" },
+        { "softIcon": "fa-brands fa-js fa-5x", "softName": "Resolución de Conflictos" }
+    ],
+
+    "Certificaciones": [{
+            "certNombre": "Responsive Web Design",
+            "certLink": "FreeCodeCamp.org",
+            "certIcon": "fa-brands fa-free-code-camp fa-2x"
+        },
+        {
+            "certNombre": "Curso Profesional de Git",
+            "certLink": "CodigoFacilito.com",
+            "certIcon": "xxxx"
+        }
+    ]
 }

@@ -1,38 +1,38 @@
 <app-navbar></app-navbar>
-<div class="skills pt-5">
-    <div class="container pt-5">
-        <div class="row gx-1 justify-content-center align-items-center" id="badges">
-            <div class=" col-lg-2 col-md-6 "><i class="fa"></i></div>
-            <div class="col-lg-2 col-md-6 "><i class="fa-brands fa-js fa-1x "></i></div>
-            <div class="col-lg-2 col-md-6 "><i class="fa-brands fa-css3 fa-1x "></i></div>
-            <div class="col-lg-2 col-md-6 "><i class="fa-brands fa-bootstrap fa-1x "></i></div>
-            <div class="col-lg-2 col-md-6 "><i class="fa-brands fa-angular fa-1x "></i></div>
-            <div class="col-lg-2 col-md-6 "><i class="fa-brands fa-git-alt fa-1x "></i></div>
-        </div>
+
+<div>
+    <div class="text-center">
+        <button type="button" class="btn btn-success">
+            <a class="nav-link">añadir educación 
+                <span class="sr-only">(current)</span>
+            </a>
+        </button>
     </div>
+</div>
+<div class="skills">
+    <div class="hard">
+        <ul class="row">
+
+            <li class="col d-flex flex-column justify-space-around" *ngFor="let hard of myHardSkillsList ">
+                <p class="col-2 d-flex justify-content-center"><i class=" {{hard.hardIcon}} "></i></p>
+
+                <p class="col "><a class="btn btn-outline-light tooltips " data-placement="left " data-toggle="tooltip " data-original-title="Edit "><i class="fa fa-pencil fa2-xs "></i></a>
+                    <a class="btn btn-outline-light tooltips " data-placement="right " data-toggle="tooltip " data-original-title="Delete "><i class="fa fa-times fa2-xs "></i></a></p>
+            </li>
+        </ul>
+    </div>
+
     <hr>
-    <div class="container mt-3" id="skillrow">
-        <div class="row gx-1 justify-content-evenly align-self-center">
-            <div class="col-lg-2 col-md-3 ">
-                <i class="fa-solid fa-brain "></i>
-                <span>pensamiento crítico</span>
-            </div>
-            <div class="col-lg-2 col-md-3 ">
-                <i class="fa-solid fa-brain "></i>
-                <span>adaptabilidad</span>
-            </div>
-            <div class="col-lg-2 col-md-3 "><i class="fa-solid fa-brain "></i>
-                <span>empatía</span>
-            </div>
-            <div class="col-lg-2 col-md-3 "><i class="fa-solid fa-brain "></i>
-                <span>creatividad</span>
-            </div>
-            <div class="col-lg-2 col-md-3 "><i class="fa-solid fa-brain "></i>
-                <span>creatividad</span>
-            </div>
-            <div class="col-lg-2 col-md-3 "><i class="fa-solid fa-brain "></i>
-                <span>creatividad</span>
-            </div>
-        </div>
+    <div class="soft ">
+        <ul class="row ">
+
+            <li class="col " *ngFor="let soft of mySoftSkillsList ">
+                <p class="col-2 pl-2 "><i class="{{soft.softIcon}} "></i></p>
+                <p class="col-2 pl-2 ">{{soft.softName}} "</p>
+
+                <p class="col "><a class="btn btn-outline-light tooltips " data-placement="left " data-toggle="tooltip " data-original-title="Edit "><i class="fa fa-pencil fa2-xs "></i></a>
+                    <a class="btn btn-outline-light tooltips " data-placement="right " data-toggle="tooltip " data-original-title="Delete "><i class="fa fa-times fa2-xs "></i></a></p>
+            </li>
+        </ul>
     </div>
 </div>
