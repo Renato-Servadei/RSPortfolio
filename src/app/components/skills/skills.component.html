@@ -11,10 +11,10 @@
 </div>
 <div class="skills">
     <div class="hard">
-        <ul class="row">
+        <ul class="row d-flex ">
 
-            <li class="col d-flex flex-column justify-space-around" *ngFor="let hard of myHardSkillsList ">
-                <p class="col-2 d-flex justify-content-center"><i class=" {{hard.hardIcon}} "></i></p>
+            <li class=" col " *ngFor=" let hard of duras ">
+                <p class="col-2 flex-column align-items-center"><i class="{{hard.iconoDuras}}"></i></p>
 
                 <p class="col "><a class="btn btn-outline-light tooltips " data-placement="left " data-toggle="tooltip " data-original-title="Edit "><i class="fa fa-pencil fa2-xs "></i></a>
                     <a class="btn btn-outline-light tooltips " data-placement="right " data-toggle="tooltip " data-original-title="Delete "><i class="fa fa-times fa2-xs "></i></a></p>
@@ -24,14 +24,13 @@
 
     <hr>
     <div class="soft ">
-        <ul class="row ">
+        <ul class="row d-flex ">
 
-            <li class="col " *ngFor="let soft of mySoftSkillsList ">
-                <p class="col-2 pl-2 "><i class="{{soft.softIcon}} "></i></p>
-                <p class="col-2 pl-2 ">{{soft.softName}} "</p>
-
-                <p class="col "><a class="btn btn-outline-light tooltips " data-placement="left " data-toggle="tooltip " data-original-title="Edit "><i class="fa fa-pencil fa2-xs "></i></a>
+            <li class="col " *ngFor="let soft of blandas ">
+                <p class="col"><a class="btn btn-outline-light tooltips " data-placement="left " data-toggle="tooltip " data-original-title="Edit "><i class="fa fa-pencil fa2-xs "></i></a>
                     <a class="btn btn-outline-light tooltips " data-placement="right " data-toggle="tooltip " data-original-title="Delete "><i class="fa fa-times fa2-xs "></i></a></p>
+                <span class="col-2 flex-column align-items-center"><img src="{{soft.iconoBlandas}}" width="80px"></span>
+                <p class="col-3 mb-3">{{soft.nombreBlandas}}</p>
             </li>
         </ul>
     </div>

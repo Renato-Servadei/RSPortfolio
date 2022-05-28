@@ -28,3 +28,26 @@ img {
     padding: 0.2rem 0.6rem;
     line-height: 1;
 }
+
+#add-modal-body,
+#edit-modal-body,
+#delete-modal-body {
+    background-color: rgba(248, 166, 15, 0.7);
+}
+
+#add-modal-header,
+#add-modal-footer,
+#edit-modal-header,
+#edit-modal-footer,
+#delete-modal-header,
+#delete-modal-footer {
+    color: black;
+    text-shadow: 1px 1px 1px gray;
+    background-color: rgba(91, 91, 91, 0.5);
+}
+
+#button-add {
+    position: relative;
+    left: 80%;
+    color: black
+}

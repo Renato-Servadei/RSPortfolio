@@ -1,6 +1,9 @@
 .skills {
+    margin: 0;
+    box-sizing: border-box;
     height: 100vh;
-    padding-top: 10em;
+    padding-top: 5em;
+    padding-left: 5em;
     background-image: url('https://64.media.tumblr.com/e6a6bf3bc0f5e1649a3308c03c1b6193/40972f2caea97c77-f1/s1280x1920/1a1dac4db8a4e58bd8c6121c2b6e42d2c5586a7f.png');
     background-size: cover;
 }
@@ -20,4 +23,14 @@ i:hover {
 i,
 btn {
     margin-left: 20%;
+}
+
+.soft {
+    color: orange;
+    text-shadow: 1px 1px 1px black;
+}
+
+img {
+    border-radius: 50%;
+    background-color: white;
 }

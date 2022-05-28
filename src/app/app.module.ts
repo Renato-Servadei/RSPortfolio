@@ -12,7 +12,7 @@ import { PortfolioDataService } from './servicios/portfolio-data.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ContactComponent } from './components/contact/contact.component';
 import { LoginComponent } from './components/login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EducacionComponent } from './components/educacion/educacion.component';
 import { ExperienciaComponent } from './components/experiencia/experiencia.component';
 import { CertificacionesComponent } from './components/certificaciones/certificaciones.component';
@@ -38,7 +38,8 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
     BrowserModule,
     AppRoutingModule, 
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [PortfolioDataService ],//, {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi : true}],
   bootstrap: [AppComponent]

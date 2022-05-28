@@ -1,4 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Experiencia } from 'src/app/model/experiencia';
+import { ExperienciaService } from 'src/app/servicios/experiencia.service';
 import { PortfolioDataService } from 'src/app/servicios/portfolio-data.service';
 
 @Component({
@@ -9,15 +12,32 @@ import { PortfolioDataService } from 'src/app/servicios/portfolio-data.service';
 export class ExperienciaComponent implements OnInit {
 
   
-  myPortfolio: any;
-  myExperienciaList: any;
-  constructor(private portfolioData : PortfolioDataService) { }
+  public experiencias: Experiencia[] = [];
+  public editExperiencia: Experiencia | undefined;
+  public deleteExperiencia: Experiencia | undefined;
+
+  constructor(private expService: ExperienciaService) { }
 
   ngOnInit(): void {
-    this.portfolioData.getData().subscribe(data =>{
-      this.myExperienciaList = data.Experiencia
-    })
+    
+    this.getExperiencias();
+  
+    }
+
+
+    public getExperiencias():void {
+      this.expService.getExperiencia().subscribe({
+        next:(Response: Experiencia[]) => {
+          this.experiencias = Response;
+        },
+
+        error: (error: HttpErrorResponse) => {
+          alert(error.message);
+        }
+
+      })
+    }
   }
 
 
-}
+

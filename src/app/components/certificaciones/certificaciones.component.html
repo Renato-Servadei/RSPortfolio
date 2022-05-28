@@ -12,10 +12,11 @@
 <div class="cert">
     <div>
         <ul>
-            <li class="row" *ngFor="let cert of myCertificacionesList">
-                <p class="col-2"><i class={{cert.certIcon}}></i></p>
-                <p class="col-3 pt-2">{{cert.certNombre }}</p>
-                <p class="col-3 pt-2">{{cert.certLink}}</p>
+            <li class="row" *ngFor="let cert of certificaciones">
+                <p class="col-2"><i class={{cert.iconoCer}}></i></p>
+                <p class="col-3 pt-2">{{cert.nombreCer}}</p>
+                <p class="col-3 pt-2">
+                    <a href={{cert.linkCer}}></a>link</p>
                 <p class="col-2"><a class="btn btn-outline-light tooltips" data-placement="left" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil fa2-xs"></i></a>
                     <a class="btn btn-outline-light tooltips" data-placement="right" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-times fa2-xs"></i></a></p>
             </li>

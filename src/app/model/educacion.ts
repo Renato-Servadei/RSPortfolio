@@ -4,5 +4,6 @@ export interface Educacion {
     periodoEdu : string;
     tituloEdu : string;
     institucionEdu : string;
+    iconoEdu : string;
     
 }
