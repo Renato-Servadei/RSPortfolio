@@ -19,6 +19,6 @@ export class PersonaService {
 
   
   public updatePersona(persona : Persona):Observable<Persona> {
-    return this.http.put<Persona>(`${this.apiServerUrl}/persona/editar/1`, persona);
+    return this.http.put<Persona>(`${this.apiServerUrl}/persona/editar`, persona);
   }
 }

@@ -1,10 +1,56 @@
 .card-group {
     height: 100vh;
-    padding-top: 5em;
-    background: linear-gradient(to top, #000 0%, rgba(0, 0, 0, 0.9) 75%, rgba(0, 0, 0, 0.8) 100%);
+    padding-top: 4em;
+    background-image: url('https://64.media.tumblr.com/e6a6bf3bc0f5e1649a3308c03c1b6193/40972f2caea97c77-f1/s1280x1920/1a1dac4db8a4e58bd8c6121c2b6e42d2c5586a7f.png');
+    background-size: cover;
+}
+
+.card {
+    height: 70vh;
+}
+
+.card-body {
+    color: white;
+    background-color: rgb(47, 45, 45);
+    height: 100px;
 }
 
 .card>img {
-    height: 15em;
+    height: 12em;
     width: auto;
+}
+
+.button-add {
+    position: fixed;
+    top: 90%;
+    left: 45%
+}
+
+#button-add {
+    color: black
+}
+
+#add-modal-body,
+#edit-modal-body,
+#delete-modal-body {
+    background-color: rgba(248, 166, 15, 0.7);
+}
+
+#add-modal-header,
+#add-modal-footer,
+#edit-modal-header,
+#edit-modal-footer,
+#delete-modal-header,
+#delete-modal-footer {
+    color: black;
+    text-shadow: 1px 1px 1px gray;
+    background-color: rgba(91, 91, 91, 0.5);
+}
+
+a.nav-link {
+    color: orange !important;
+}
+
+a.nav-link:hover {
+    color: transparent !important;
 }

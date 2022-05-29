@@ -1,13 +1,124 @@
 <app-navbar></app-navbar>
-<div class="About">
+<div class="About" id="main-container">
     <div class="mx-auto text-center pb-5">
         <h1 *ngIf="persona">{{persona.nombrePer}}</h1>
         <h5>{{persona?.ciudadPer}}</h5>
-        <p>{{persona?.descPer}}</p>
+        <p id="descripcion">{{persona?.descPer}}</p>
+        <img src="{{persona?.imgPer}}">
+        <p class="col mt-3">
+            <a (click)="onOpenModal('edit', persona)" class="btn btn-outline-light tooltips" data-placement="left " data-toggle="tooltip " data-original-title="Edit" data-target="#editBlandasModal"><i class="fa fa-pencil fa2-xs"></i
+  ></a></p>
     </div>
-    <div class="d-flex flex-row justify-content-center align-items-baseline mt-5 pt-4" id="links">
+    <div class="d-flex flex-row justify-content-center align-items-baseline mt-3 pt-4" id="links">
         <h3><a class="nav-link" routerLink="/educacion">Educación</a></h3>
         <h3><a class="nav-link" routerLink="/experiencia">Experiencia</a></h3>
         <h3><a class="nav-link" routerLink="/certificaciones">Certificaciones</a></h3>
     </div>
+</div>
+
+<!--Modal editar-->
+<div class="modal fade" id="editPersonaModal" tabindex="-1" role="dialog" aria-labelledby="editPersonaModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" id="edit-modal-header">
+                <h5 class="modal-title" id="editPersonaModalLabel">
+                    {{ editPersona?.nombrePer}}
+                </h5>
+            </div>
+            <div class="modal-body" id="edit-modal-body">
+                <form #editForm="ngForm">
+                    <div class="form-group row mb-2">
+                        <label for="nombreBlandas" class="col-sm-2 col-form-label">Nombre</label
+        >
+        <div class="form-group col-sm-10">
+          <input
+            type="text"
+            ngModel="{{ editPersona?.nombrePer}}"
+            name="nombrePer"
+            class="form-control"
+            id="nombrePer"
+            placeholder="Nombre"
+            #tituloEdu="ngModel"
+          />
+        </div>
+        <div class="form-group col-sm-10">
+          <input
+            type="hidden"
+            ngModel="{{ editPersona?.idPer}}"
+            name="idPer"
+            class="form-control"
+            id="idPer"
+            #idEdu="ngModel"
+          />
+        </div>
+      </div>
+      <div class="form-group row mb-2">
+        <label for="descPer" class="col-sm-2 col-form-label"
+          >Descripción</label
+        >
+        <div class="col-sm-10">
+          <input
+            type="text"
+            ngModel="{{ editPersona?.descPer}}"
+            name="descPer"
+            class="form-control"
+            id="descPer"
+            placeholder="Descripción"
+            #institucionEdu="ngModel"
+          />
+        </div>
+      </div>
+      <div class="form-group row mb-2">
+        <label for="ciudadPer" class="col-sm-2 col-form-label"
+          >Ciudad</label
+        >
+        <div class="col-sm-10">
+          <input
+            type="text"
+            ngModel="{{ editPersona?.ciudadPer}}"
+            name="ciudadPer"
+            class="form-control"
+            id="ciudadPer"
+            placeholder="Ciudad"
+            #institucionEdu="ngModel"
+          />
+        </div>
+      </div>
+      <div class="form-group row mb-2">
+        <label for="imgPer" class="col-sm-2 col-form-label"
+          >Imagen</label
+        >
+        <div class="col-sm-10">
+          <input
+            type="text"
+            ngModel="{{ editPersona?.imgPer}}"
+            name="imgPer"
+            class="form-control"
+            id="imgPer"
+            placeholder="Imagen"
+            #institucionEdu="ngModel"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer" id="edit-modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      data-dismiss="modal"
+      id="edit-blandas-form"
+    >
+      Cerrar
+    </button>
+    <button
+      (click)="onUpdatePersona(editForm.value)"
+      data-dismiss="modal"
+      class="btn btn-outline-dark"
+    >
+      Guardar Cambios
+    </button>
+  </div>
+</div>
+</div>
 </div>

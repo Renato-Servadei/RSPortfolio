@@ -8,11 +8,7 @@
     opacity: 0.9;
 }
 
-@media (min-width: 768px) {}
-
-@media (min-width: 992px) {
-    .masthead {
-        height: 100vh;
-        padding: 0;
-    }
+img {
+    max-width: 68%;
+    height: auto;
 }

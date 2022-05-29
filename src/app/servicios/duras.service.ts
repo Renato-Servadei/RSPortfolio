@@ -22,7 +22,7 @@ export class DurasService {
   }
   
   public updateDuras(Duras: Duras):Observable<Duras> {
-    return this.http.post<Duras>(`${this.apiServerUrl}/duras/editar`, Duras);
+    return this.http.put<Duras>(`${this.apiServerUrl}/duras/editar`, Duras);
   }
 
   public deleteDuras(DurasId: number):Observable<void> {

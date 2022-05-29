@@ -32,7 +32,7 @@
             "eduImg": "../../assets/Logo-UBA-nuevo-blanco.png"
         }
     ],
-    "banner_img": "./assets/zx_banner.jpg",
+    "banner_img": "./assets/spectrum.jpg",
     "Projects": [{
             "projTitle": "Calculadora",
             "projDesc": "simple calculadora hecha utilizando HTML, CSS y JS",

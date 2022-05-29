@@ -1,37 +1,216 @@
 <app-navbar></app-navbar>
-
-<div>
-    <div class="text-center">
-        <button type="button" class="btn btn-success">
-            <a class="nav-link">añadir educación 
-                <span class="sr-only">(current)</span>
-            </a>
-        </button>
-    </div>
-</div>
 <div class="skills">
-    <div class="hard">
-        <ul class="row d-flex ">
+    <div class="text-center my-5">
+        <button type="button" id="button-add" class="btn btn-outline-light mb-3" data-toggle="modal" data-target="#addDurasModal" (click)="onOpenModal('add')">
+      <a class="nav-link"
+        >añadir habilidad
+        <span class="sr-only">(current)</span>
+      </a>
+    </button>
+    </div>
+    <div class="hard ml" id="main-container">
+        <ul class="row d-flex justify-content-center">
+            <li class="col-2 mt-2" *ngFor="let hard of duras">
+                <p class="flex-column align-items-center">
+                    <i class="{{ hard.iconoDuras }}"></i>
+                </p>
 
-            <li class=" col " *ngFor=" let hard of duras ">
-                <p class="col-2 flex-column align-items-center"><i class="{{hard.iconoDuras}}"></i></p>
-
-                <p class="col "><a class="btn btn-outline-light tooltips " data-placement="left " data-toggle="tooltip " data-original-title="Edit "><i class="fa fa-pencil fa2-xs "></i></a>
-                    <a class="btn btn-outline-light tooltips " data-placement="right " data-toggle="tooltip " data-original-title="Delete "><i class="fa fa-times fa2-xs "></i></a></p>
+                <p class="col">
+                    <a (click)="onOpenModal('edit', hard)" class="btn btn-outline-light tooltips" data-placement="left " data-toggle="tooltip " data-original-title="Edit" data-target="#editDurasModal"><i class="fa fa-pencil fa2-xs"></i
+          ></a>
+                    <a (click)="onOpenModal('delete', hard)" class="btn btn-outline-light tooltips" data-placement="right " data-toggle="tooltip " data-original-title="Delete" data-target="#deleteDurasModal"><i class="fa fa-times fa2-xs"></i
+          ></a>
+                </p>
             </li>
         </ul>
+        <div class="d-flex flex-row justify-content-center align-items-baseline mt-5 pt-4" id="links">
+            <h3><a class="nav-link" routerLink="/blandas">Habilidades Blandas</a></h3>
+        </div>
     </div>
-
-    <hr>
-    <div class="soft ">
-        <ul class="row d-flex ">
-
-            <li class="col " *ngFor="let soft of blandas ">
-                <p class="col"><a class="btn btn-outline-light tooltips " data-placement="left " data-toggle="tooltip " data-original-title="Edit "><i class="fa fa-pencil fa2-xs "></i></a>
-                    <a class="btn btn-outline-light tooltips " data-placement="right " data-toggle="tooltip " data-original-title="Delete "><i class="fa fa-times fa2-xs "></i></a></p>
-                <span class="col-2 flex-column align-items-center"><img src="{{soft.iconoBlandas}}" width="80px"></span>
-                <p class="col-3 mb-3">{{soft.nombreBlandas}}</p>
-            </li>
-        </ul>
+    <!-- Modal agregar-->
+    <div class="modal fade" id="addDurasModal" tabindex="-1" role="dialog" aria-labelledby="addDurasModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center" id="add-modal-header">
+                    <h5 class="modal-title" id="addDurasModalLabel">Añadir Habilidad</h5>
+                </div>
+                <div class="modal-body" id="add-modal-body">
+                    <form #addForm="ngForm" (ngSubmit)="onAddDuras(addForm)">
+                        <div class="form-group row mb-2">
+                            <label for="nombreDuras" class="col-sm-2 col-form-label">Nombre</label
+              >
+              <div class="form-group col-sm-10">
+                <input
+                  type="text"
+                  ngModel
+                  name="nombreDuras"
+                  class="form-control"
+                  id="nombreDuras"
+                  placeholder="nombre"
+                  #tituloEdu="ngModel"
+                />
+              </div>
+            </div>
+            <div class="form-group row mb-2">
+              <label for="iconoDuras" class="col-sm-2 col-form-label"
+                >Icono</label
+              >
+              <div class="col-sm-10">
+                <input
+                  type="text"
+                  ngModel
+                  name="iconoDuras"
+                  class="form-control"
+                  id="iconoDuras"
+                  placeholder="Icono"
+                  #institucionEdu="ngModel"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer" id="add-modal-footer">
+          <button
+            type="button"
+            class="btn btn-outline-dark"
+            data-dismiss="modal"
+            id="add-durras-form"
+          >
+            Cerrar
+          </button>
+          <button
+            (click)="onAddDuras(addForm)"
+            type="submit"
+            class="btn btn-outline-dark"
+          >
+            Guardar Cambios
+          </button>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
+<!--Modal editar-->
+<div
+  class="modal fade"
+  id="editDurasModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="editDurasModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" id="edit-modal-header">
+        <h5 class="modal-title" id="editDurasModalLabel">
+          {{ editDuras?.nombreDuras }}
+        </h5>
+      </div>
+      <div class="modal-body" id="edit-modal-body">
+        <form #editForm="ngForm">
+          <div class="form-group row mb-2">
+            <label for="nombreDuras" class="col-sm-2 col-form-label"
+              >Nombre</label
+            >
+            <div class="form-group col-sm-10">
+              <input
+                type="text"
+                ngModel="{{ editDuras?.nombreDuras }}"
+                name="nombreDuras"
+                class="form-control"
+                id="nombreDuras"
+                placeholder="Nombre"
+                #tituloEdu="ngModel"
+              />
+            </div>
+            <div class="form-group col-sm-10">
+              <input
+                type="hidden"
+                ngModel="{{ editDuras?.idDuras }}"
+                name="idDuras"
+                class="form-control"
+                id="idDuras"
+                #idEdu="ngModel"
+              />
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <label for="iconoDuras" class="col-sm-2 col-form-label"
+              >Icono</label
+            >
+            <div class="col-sm-10">
+              <input
+                type="text"
+                ngModel="{{ editDuras?.iconoDuras }}"
+                name="iconoDuras"
+                class="form-control"
+                id="iconoDuras"
+                placeholder="Icono"
+                #institucionEdu="ngModel"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer" id="edit-modal-footer">
+        <button
+          type="button"
+          class="btn btn-outline-dark"
+          data-dismiss="modal"
+          id="edit-duras-form"
+        >
+          Cerrar
+        </button>
+        <button
+          (click)="onUpdateDuras(editForm.value)"
+          data-dismiss="modal"
+          class="btn btn-outline-dark"
+        >
+          Guardar Cambios
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Modal borrar-->
+<div
+  class="modal fade"
+  id="deleteDurasModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="deleteDurasModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" id="delete-modal-header">
+        <h5 class="modal-title" id="deleteDurasModalLabel">
+          Eliminar Habilidad
+        </h5>
+      </div>
+      <div class="modal-body" id="delete-modal-body">
+        <p>¿está seguro de eliminar el item?</p>
+        <p class="text-center" style="color: white">
+          {{ deleteDuras?.nombreDuras }}
+        </p>
+      </div>
+      <div class="modal-footer" id="delete-modal-footer">
+        <button
+          type="button"
+          class="btn btn-outline-dark"
+          data-dismiss="modal"
+          id="delete-duras-form"
+        >
+          No
+        </button>
+        <button
+          (click)="onDeleteDuras(deleteDuras!.idDuras)"
+          data-dismiss="modal"
+          class="btn btn-outline-dark"
+        >
+          Si
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

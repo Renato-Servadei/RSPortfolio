@@ -11,10 +11,34 @@ ul {
     padding-left: 13em;
 }
 
-a.nav-link {
+a.nav-link,
+a {
     color: orange !important;
 }
 
 a.nav-link:hover {
     color: white !important;
+}
+
+#add-modal-body,
+#edit-modal-body,
+#delete-modal-body {
+    background-color: rgba(248, 166, 15, 0.7);
+}
+
+#add-modal-header,
+#add-modal-footer,
+#edit-modal-header,
+#edit-modal-footer,
+#delete-modal-header,
+#delete-modal-footer {
+    color: black;
+    text-shadow: 1px 1px 1px gray;
+    background-color: rgba(91, 91, 91, 0.5);
+}
+
+#button-add {
+    position: relative;
+    left: 73.5%;
+    color: black
 }

@@ -1,11 +1,11 @@
 <app-navbar></app-navbar>
 <div class="edu main-container">
     <button type="button" id="button-add" class="btn btn-outline-light mb-3" data-toggle="modal" data-target="#addEducationModal" (click)="onOpenModal('add')">
-        <a class="nav-link"
-          ><i class="fa-solid fa-square-plus fa-1x"></i>
-          <span class="sr-only">(current)</span>
-        </a>
-      </button>
+    <a class="nav-link"
+      ><i class="fa-solid fa-square-plus fa-1x"></i>
+      <span class="sr-only">(current)</span>
+    </a>
+  </button>
     <div class="infoedu" id="main-container">
         <ul>
             <li class="row" *ngFor="let edu of educaciones">
@@ -37,7 +37,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header text-center" id="add-modal-header">
-                <h5 class="modal-title " id="addEducationModalLabel">
+                <h5 class="modal-title" id="addEducationModalLabel">
                     Añadir Educación
                 </h5>
             </div>
@@ -102,7 +102,7 @@
           Cerrar
         </button>
         <button
-        (click)="onAddEducation(addForm)"
+          (click)="onAddEducation(addForm)"
           type="submit"
           class="btn btn-outline-dark"
         >
@@ -146,15 +146,15 @@
               />
             </div>
             <div class="form-group col-sm-10">
-                <input
-                  type="hidden"
-                  ngModel="{{ editEducacion?.idEdu }}"
-                  name="idEdu"
-                  class="form-control"
-                  id="idEdu"
-                  #idEdu="ngModel"
-                />
-              </div>
+              <input
+                type="hidden"
+                ngModel="{{ editEducacion?.idEdu }}"
+                name="idEdu"
+                class="form-control"
+                id="idEdu"
+                #idEdu="ngModel"
+              />
+            </div>
           </div>
           <div class="form-group row mb-2">
             <label for="institucionEdu" class="col-sm-2 col-form-label"
@@ -196,7 +196,7 @@
           class="btn btn-outline-dark"
           data-dismiss="modal"
           id="edit-education-form"
-        > 
+        >
           Cerrar
         </button>
         <button
@@ -228,9 +228,10 @@
       </div>
       <div class="modal-body" id="delete-modal-body">
         <p>¿está seguro de eliminar el item?</p>
-        <p class="text-center" style="color:white"> {{deleteEducacion?.periodoEdu}}<br>
-            {{deleteEducacion?.tituloEdu}}<br>
-            {{deleteEducacion?.institucionEdu}}
+        <p class="text-center" style="color: white">
+          {{ deleteEducacion?.periodoEdu }}<br />
+          {{ deleteEducacion?.tituloEdu }}<br />
+          {{ deleteEducacion?.institucionEdu }}
         </p>
       </div>
       <div class="modal-footer" id="delete-modal-footer">
@@ -239,7 +240,7 @@
           class="btn btn-outline-dark"
           data-dismiss="modal"
           id="delete-education-form"
-        > 
+        >
           No
         </button>
         <button

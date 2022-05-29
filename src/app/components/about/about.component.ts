@@ -29,6 +29,32 @@ public editPersona : Persona | undefined;
       }
     })
   }
-  
+  public onUpdatePersona(persona: Persona) {
+    document.getElementById('edit-persona-form')?.click();
+    this.personaService.updatePersona(persona).subscribe({
+      next: (response : Persona) => {
+        console.log(response);
+        this.getPersona();
+        
+      },
+      error: (error : HttpErrorResponse) => {
+        alert (error.message);
+        
+        }
+    })
+  }
+
+  public onOpenModal(mode: String, persona?: Persona):void {
+    const container = document.getElementById('main-container');
+    const button = document.createElement('button');
+    button.style.display = 'none';
+    button.setAttribute('data-toggle', 'modal');
+    if (mode === 'edit') {
+      this.editPersona = persona;
+      button.setAttribute('data-target', '#editPersonaModal')
+    }
+    container?.appendChild(button);
+    button.click();
+  }
 
 }

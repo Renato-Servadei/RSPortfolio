@@ -1,0 +1,216 @@
+<app-navbar></app-navbar>
+<div class="blandas">
+    <div class="text-center mt-5">
+        <button type="button" id="button-add" class="btn btn-outline-light mb-3" data-toggle="modal" data-target="#addBlandasModal" (click)="onOpenModal('add')">
+      <a class="nav-link"
+        >añadir habilidad
+        <span class="sr-only">(current)</span>
+      </a>
+    </button>
+    </div>
+    <div class="soft" id="main-container">
+        <ul class="row d-flex justify-content-center">
+            <li class="col-2" *ngFor="let soft of blandas">
+                <p class="col mb-4 mt-3">{{ soft.nombreBlandas }}</p>
+                <span class="col-2 flex-column align-items-center mb-5"><img src="{{ soft.iconoBlandas }}" width="80px"
+        /></span>
+
+                <p class="col mt-3">
+                    <a (click)="onOpenModal('edit', soft)" class="btn btn-outline-light tooltips" data-placement="left " data-toggle="tooltip " data-original-title="Edit" data-target="#editBlandasModal"><i class="fa fa-pencil fa2-xs"></i
+          ></a>
+                    <a (click)="onOpenModal('delete', soft)" class="btn btn-outline-light tooltips" data-placement="right " data-toggle="tooltip " data-original-title="Delete" data-target="#deleteBlandasModal"><i class="fa fa-times fa2-xs"></i
+          ></a>
+                </p>
+            </li>
+        </ul>
+    </div>
+    <div class="d-flex flex-row justify-content-center align-items-baseline mt-5 pt-4" id="links">
+        <h3><a class="nav-link" routerLink="/skills">Habilidades Blandas</a></h3>
+    </div>
+</div>
+<!-- Modal agregar-->
+<div class="modal fade" id="addBlandasModal" tabindex="-1" role="dialog" aria-labelledby="addBlandasModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center" id="add-modal-header">
+                <h5 class="modal-title" id="addBlandasModalLabel">Añadir Habilidad</h5>
+            </div>
+            <div class="modal-body" id="add-modal-body">
+                <form #addForm="ngForm" (ngSubmit)="onAddBlandas(addForm)">
+                    <div class="form-group row mb-2">
+                        <label for="nombreBlandas" class="col-sm-2 col-form-label">Nombre</label
+          >
+          <div class="form-group col-sm-10">
+            <input
+              type="text"
+              ngModel
+              name="nombreBlandas"
+              class="form-control"
+              id="nombreBlandas"
+              placeholder="nombre"
+              #tituloEdu="ngModel"
+            />
+          </div>
+        </div>
+        <div class="form-group row mb-2">
+          <label for="iconoBlandas" class="col-sm-2 col-form-label"
+            >Icono</label
+          >
+          <div class="col-sm-10">
+            <input
+              type="text"
+              ngModel
+              name="iconoBlandas"
+              class="form-control"
+              id="iconoBlandas"
+              placeholder="Icono"
+              #institucionEdu="ngModel"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer" id="add-modal-footer">
+      <button
+        type="button"
+        class="btn btn-outline-dark"
+        data-dismiss="modal"
+        id="add-durras-form"
+      >
+        Cerrar
+      </button>
+      <button
+        (click)="onAddBlandas(addForm)"
+        type="submit"
+        class="btn btn-outline-dark"
+      >
+        Guardar Cambios
+      </button>
+    </div>
+  </div>
+</div>
+</div>
+<!--Modal editar-->
+<div
+class="modal fade"
+id="editBlandasModal"
+tabindex="-1"
+role="dialog"
+aria-labelledby="editBlandasModalLabel"
+aria-hidden="true"
+>
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+  <div class="modal-header" id="edit-modal-header">
+    <h5 class="modal-title" id="editBlandasModalLabel">
+      {{ editBlandas?.nombreBlandas }}
+    </h5>
+  </div>
+  <div class="modal-body" id="edit-modal-body">
+    <form #editForm="ngForm">
+      <div class="form-group row mb-2">
+        <label for="nombreBlandas" class="col-sm-2 col-form-label"
+          >Nombre</label
+        >
+        <div class="form-group col-sm-10">
+          <input
+            type="text"
+            ngModel="{{ editBlandas?.nombreBlandas }}"
+            name="nombreBlandas"
+            class="form-control"
+            id="nombreBlandas"
+            placeholder="Nombre"
+            #tituloEdu="ngModel"
+          />
+        </div>
+        <div class="form-group col-sm-10">
+          <input
+            type="hidden"
+            ngModel="{{ editBlandas?.idBlandas }}"
+            name="idBlandas"
+            class="form-control"
+            id="idBlandas"
+            #idEdu="ngModel"
+          />
+        </div>
+      </div>
+      <div class="form-group row mb-2">
+        <label for="iconoBlandas" class="col-sm-2 col-form-label"
+          >Icono</label
+        >
+        <div class="col-sm-10">
+          <input
+            type="text"
+            ngModel="{{ editBlandas?.iconoBlandas }}"
+            name="iconoBlandas"
+            class="form-control"
+            id="iconoBlandas"
+            placeholder="Icono"
+            #institucionEdu="ngModel"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer" id="edit-modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      data-dismiss="modal"
+      id="edit-blandas-form"
+    >
+      Cerrar
+    </button>
+    <button
+      (click)="onUpdateBlandas(editForm.value)"
+      data-dismiss="modal"
+      class="btn btn-outline-dark"
+    >
+      Guardar Cambios
+    </button>
+  </div>
+</div>
+</div>
+</div>
+<!--Modal borrar-->
+<div
+class="modal fade"
+id="deleteBlandasModal"
+tabindex="-1"
+role="dialog"
+aria-labelledby="deleteBlandasModalLabel"
+aria-hidden="true"
+>
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+  <div class="modal-header" id="delete-modal-header">
+    <h5 class="modal-title" id="deleteBlandasModalLabel">
+      Eliminar Habilidad
+    </h5>
+  </div>
+  <div class="modal-body" id="delete-modal-body">
+    <p>¿está seguro de eliminar el item?</p>
+    <p class="text-center" style="color: white">
+      {{ deleteBlandas?.nombreBlandas }}
+    </p>
+  </div>
+  <div class="modal-footer" id="delete-modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      data-dismiss="modal"
+      id="delete-blandas-form"
+    >
+      No
+    </button>
+    <button
+      (click)="onDeleteBlandas(deleteBlandas!.idBlandas)"
+      data-dismiss="modal"
+      class="btn btn-outline-dark"
+    >
+      Si
+    </button>
+  </div>
+</div>
+</div>
+</div>

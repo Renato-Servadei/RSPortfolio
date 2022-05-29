@@ -10,6 +10,7 @@ import { EducacionComponent } from './components/educacion/educacion.component';
 import { ExperienciaComponent } from './components/experiencia/experiencia.component';
 import { CertificacionesComponent } from './components/certificaciones/certificaciones.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { BlandasComponent } from './components/blandas/blandas.component';
 
 const routes: Routes = [
   {path: 'about', component: AboutComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'experiencia', component: ExperienciaComponent},
   {path: 'certificaciones', component: CertificacionesComponent},
   {path: 'portfolio', component: PortfolioComponent},
+  {path: 'blandas', component: BlandasComponent},
   {path: '', redirectTo: '/login', pathMatch: 'full'}
 
 ];

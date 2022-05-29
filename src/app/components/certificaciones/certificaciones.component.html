@@ -1,31 +1,256 @@
 <app-navbar></app-navbar>
-<div>
-    <div class="text-center">
-        <button type="button" class="btn btn-success">
-            <a class="nav-link">añadir educación 
-                <span class="sr-only">(current)</span>
-            </a>
-        </button>
-    </div>
-</div>
-
 <div class="cert">
-    <div>
-        <ul>
-            <li class="row" *ngFor="let cert of certificaciones">
-                <p class="col-2"><i class={{cert.iconoCer}}></i></p>
-                <p class="col-3 pt-2">{{cert.nombreCer}}</p>
-                <p class="col-3 pt-2">
-                    <a href={{cert.linkCer}}></a>link</p>
-                <p class="col-2"><a class="btn btn-outline-light tooltips" data-placement="left" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil fa2-xs"></i></a>
-                    <a class="btn btn-outline-light tooltips" data-placement="right" data-toggle="tooltip" data-original-title="Delete"><i class="fa fa-times fa2-xs"></i></a></p>
-            </li>
-        </ul>
-    </div>
-    <div class="d-flex flex-row justify-content-center align-items-baseline mt-5 pt-4">
+    <button type="button" id="button-add" class="btn btn-outline-light mb-3" data-toggle="modal" data-target="#addCertificacionesModal" (click)="onOpenModal('add')">
+    <a class="nav-link"
+      ><i class="fa-solid fa-square-plus fa-1x"></i>
+      <span class="sr-only">(current)</span>
+    </a>
+  </button>
 
-        <h3><a class="nav-link" routerLink="/educacion">Educación</a></h3>
-        <h3><a class="nav-link" routerLink="/experiencia">Experiencia</a></h3>
-        <h3><a class="nav-link" routerLink="/about">Volver</a></h3>
+    <div class="infoCer" id="main-container">
+        <div>
+            <ul>
+                <li class="row" *ngFor="let cert of certificaciones">
+                    <p class="col-2"><img src={{cert.iconoCer}} width="50px"></p>
+                    <p class="col-3 pt-2">{{cert.nombreCer}}</p>
+                    <p class="col-3 pt-2">
+                        <a href="{{cert.linkCer}}">link</a></p>
+                    <p class="col">
+                        <a (click)="onOpenModal('edit', cert)" class="btn btn-outline-light tooltips" data-placement="left" data-toggle="tooltip" data-original-title="Edit" data-target="#editCertificacionesModal"><i class="fa fa-pencil fa2-xs"></i
+                        ></a>
+                        <a (click)="onOpenModal('delete', cert)" class="btn btn-outline-light tooltips" data-placement="right" data-toggle="tooltip" data-original-title="Delete" data-target="#deleteCertificacionesModal"><i class="fa fa-times fa2-xs"></i
+                        ></a>
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <div class="d-flex flex-row justify-content-center align-items-baseline mt-5 pt-4">
+
+            <h3><a class="nav-link" routerLink="/educacion">Educación</a></h3>
+            <h3><a class="nav-link" routerLink="/experiencia">Certificaciones</a></h3>
+            <h3><a class="nav-link" routerLink="/about">Volver</a></h3>
+        </div>
     </div>
+    <!-- Modal agregar-->
+    <div class="modal fade" id="addCertificacionesModal" tabindex="-1" role="dialog" aria-labelledby="addCertificacionesModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center" id="add-modal-header">
+                    <h5 class="modal-title" id="addCertificacionesModalLabel">
+                        Añadir Certificación
+                    </h5>
+                </div>
+                <div class="modal-body" id="add-modal-body">
+                    <form #addForm="ngForm" (ngSubmit)="onAddCertificaciones(addForm)">
+                        <div class="form-group row mb-2">
+                            <label for="nombreCer" class="col-sm-2 col-form-label">Título</label
+              >
+              <div class="form-group col-sm-10">
+                <input
+                  type="text"
+                  ngModel
+                  name="nombreCer"
+                  class="form-control"
+                  id="tituloCer"
+                  placeholder="Título"
+                  #tituloCer="ngModel"
+                />
+              </div>
+            </div>
+            <div class="form-group row mb-2">
+              <label for="linkCer" class="col-sm-2 col-form-label"
+                >Link</label
+              >
+              <div class="col-sm-10">
+                <input
+                  type="text"
+                  ngModel
+                  name="linkCer"
+                  class="form-control"
+                  id="linkCer"
+                  placeholder="Link"
+                  #institucionCer="ngModel"
+                />
+              </div>
+            </div>
+            <div class="form-group row mb-2">
+              <label for="iconoCer" class="col-sm-2 col-form-label"
+                >Icono</label
+              >
+              <div class="col-sm-10">
+                <input
+                  type="text"
+                  ngModel
+                  name="IconoCer"
+                  class="form-control"
+                  id="iconoCer"
+                  placeholder="Icono"
+                  #periodoCer="ngModel"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer" id="add-modal-footer">
+          <button
+            type="button"
+            class="btn btn-outline-dark"
+            data-dismiss="modal"
+            id="add-education-form"
+          >
+            Cerrar
+          </button>
+          <button
+            (click)="onAddCertificaciones(addForm)"
+            type="submit"
+            class="btn btn-outline-dark"
+          >
+            Guardar Cambios
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Modal editar-->
+  <div
+    class="modal fade"
+    id="editCertificacionesModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="editCertificacionesModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" id="edit-modal-header">
+          <h5 class="modal-title" id="editCertificacionesModalLabel">
+            {{ editCertificaciones?.nombreCer }}
+          </h5>
+        </div>
+        <div class="modal-body" id="edit-modal-body">
+          <form #editForm="ngForm">
+            <div class="form-group row mb-2">
+              <label for="nombreCer" class="col-sm-2 col-form-label"
+                >Título</label
+              >
+              <div class="form-group col-sm-10">
+                <input
+                  type="text"
+                  ngModel="{{ editCertificaciones?.nombreCer }}"
+                  name="nombreCer"
+                  class="form-control"
+                  id="nombreCer"
+                  placeholder="Título"
+                  #nombreCer="ngModel"
+                />
+              </div>
+              <div class="form-group col-sm-10">
+                <input
+                  type="hidden"
+                  ngModel="{{ editCertificaciones?.idCer }}"
+                  name="idCer"
+                  class="form-control"
+                  id="idCer"
+                  #idCer="ngModel"
+                />
+              </div>
+            </div>
+            <div class="form-group row mb-2">
+              <label for="linkCer" class="col-sm-2 col-form-label"
+                >Link</label
+              >
+              <div class="col-sm-10">
+                <input
+                  type="text"
+                  ngModel="{{ editCertificaciones?.linkCer }}"
+                  name="linkCer"
+                  class="form-control"
+                  id="linkCer"
+                  placeholder="Institución"
+                  #linkCer="ngModel"
+                />
+              </div>
+            </div>
+            <div class="form-group row mb-2">
+              <label for="iconoCer" class="col-sm-2 col-form-label"
+                >Icono</label
+              >
+              <div class="col-sm-10">
+                <input
+                  type="text"
+                  ngModel="{{ editCertificaciones?.iconoCer }}"
+                  name="iconoCer"
+                  class="form-control"
+                  id="iconoCer"
+                  placeholder="Período"
+                  #iconoCer="ngModel"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer" id="edit-modal-footer">
+          <button
+            type="button"
+            class="btn btn-outline-dark"
+            data-dismiss="modal"
+            id="edit-certificaciones-form"
+          >
+            Cerrar
+          </button>
+          <button
+            (click)="onUpdateCertificaciones(editForm.value)"
+            data-dismiss="modal"
+            class="btn btn-outline-dark"
+          >
+            Guardar Cambios
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Modal borrar-->
+  <div
+    class="modal fade"
+    id="deleteCertificacionesModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="deleteCertificacionesModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" id="delete-modal-header">
+          <h5 class="modal-title" id="deleteCertificacionesModalLabel">
+            Eliminar Certificación
+          </h5>
+        </div>
+        <div class="modal-body" id="delete-modal-body">
+          <p>¿está seguro de eliminar el item?</p>
+          <p class="text-center" style="color: white">
+            {{ deleteCertificaciones?.nombreCer }}<br />
+            {{ deleteCertificaciones?.linkCer }}<br />
+            {{ deleteCertificaciones?.iconoCer }}
+          </p>
+        </div>
+        <div class="modal-footer" id="delete-modal-footer">
+          <button
+            type="button"
+            class="btn btn-outline-dark"
+            data-dismiss="modal"
+            id="delete-certificaciones-form"
+          >
+            No
+          </button>
+          <button
+            (click)="onDeleteCertificaciones(deleteCertificaciones!.idCer)"
+            data-dismiss="modal"
+            class="btn btn-outline-dark"
+          >
+            Si
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

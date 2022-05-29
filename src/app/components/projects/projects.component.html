@@ -1,18 +1,300 @@
 <app-navbar></app-navbar>
-<section class="card-section" id="Projects">
-    <div class="card-group">
-        <div class="card" *ngFor="let pro of proyectos">
-            <img src="{{pro.imgPro}}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{pro.nombrePro}}</h5>
-                <p class="card-text">{{pro.descPro}}</p>
-
-            </div>
-            <div class="card-footer">
-                <small class="d-flex flex-row justify-content-around">
+<div class="card-group" id="main-container">
+    <div class="card mt-5" *ngFor="let pro of proyectos">
+        <img src="{{pro.imgPro}}" class="card-img-top" alt="...">
+        <div class="card-body ">
+            <h5 class="card-title">{{pro.nombrePro}}</h5>
+            <p class="card-text">{{pro.descPro}}</p>
+            <p>
+                <a (click)="onOpenModal('edit', pro)" class="btn btn-outline-light tooltips mt-3" data-placement="left" data-toggle="tooltip" data-original-title="Edit" data-target="#editProyectosModal"><i class="fa fa-pencil fa2-xs"></i
+                ></a>
+                <a (click)="onOpenModal('delete', pro)" class="btn btn-outline-light tooltips mt-3" data-placement="right" data-toggle="tooltip" data-original-title="Delete" data-target="#deleteProyectosModal"><i class="fa fa-times fa2-xs"></i
+                ></a>
+            </p>
+        </div>
+        <div class="card-footer">
+            <small class="d-flex flex-row justify-content-around">
                           <a href="{{pro.pagPro}}"> Page <i class="fa-brands fa-github fa-sm"></i>
                           </a>
                           <a href="{{pro.codPro}}">Repo <i class="fa-brands fa-github fa-sm"></i></a>
                       </small>
-            </div>
         </div>
+    </div>
+    <div class="button-add">
+        <button type="button" id="button-add" class="btn btn-outline-light mb-3" data-toggle="modal" data-target="#addProyectosModal" (click)="onOpenModal('add')">
+        <a class="nav-link"
+          ><i class="fa-solid fa-square-plus fa-1x"></i>
+          <span class="sr-only">(current)</span>
+        </a>
+      </button>
+    </div>
+    <!-- Modal agregar-->
+    <div class="modal fade" id="addProyectosModal" tabindex="-1" role="dialog" aria-labelledby="addProyectosModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center" id="add-modal-header">
+                    <h5 class="modal-title" id="addProyectosModalLabel">
+                        Añadir Proyectos
+                    </h5>
+                </div>
+                <div class="modal-body" id="add-modal-body">
+                    <form #addForm="ngForm" (ngSubmit)="onAddProyectos(addForm)">
+                        <div class="form-group row mb-2">
+                            <label for="nombrePro" class="col-sm-2 col-form-label">Nombre</label
+                  >
+                  <div class="form-group col-sm-10">
+                    <input
+                      type="text"
+                      ngModel
+                      name="nombrePro"
+                      class="form-control"
+                      id="nombrePro"
+                      placeholder="Nombre del Proyecto"
+                      #nombrePro="ngModel"
+                    />
+                  </div>
+                </div>
+                <div class="form-group row mb-2">
+                  <label for="descPro" class="col-sm-2 col-form-label"
+                    >Descripción</label
+                  >
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      ngModel
+                      name="descPro"
+                      class="form-control"
+                      id="descPro"
+                      placeholder="Descripción"
+                      #institucionCer="ngModel"
+                    />
+                  </div>
+                </div>
+                <div class="form-group row mb-2">
+                    <label for="codPro" class="col-sm-2 col-form-label"
+                      >Repositorio</label
+                    >
+                    <div class="col-sm-10">
+                      <input
+                        type="text"
+                        ngModel
+                        name="codPro"
+                        class="form-control"
+                        id="codPro"
+                        placeholder="Repositorio"
+                        #institucionCer="ngModel"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-group row mb-2">
+                    <label for="pagPro" class="col-sm-2 col-form-label"
+                      >Página</label
+                    >
+                    <div class="col-sm-10">
+                      <input
+                        type="text"
+                        ngModel
+                        name="pagPro"
+                        class="form-control"
+                        id="pagPro"
+                        placeholder="Página"
+                        #institucionCer="ngModel"
+                      />
+                    </div>
+                  </div>
+              </form>
+            </div>
+            <div class="modal-footer" id="add-modal-footer">
+              <button
+                type="button"
+                class="btn btn-outline-dark"
+                data-dismiss="modal"
+                id="add-education-form"
+              >
+                Cerrar
+              </button>
+              <button
+                (click)="onAddProyectos(addForm)"
+                type="submit"
+                class="btn btn-outline-dark"
+              >
+                Guardar Cambios
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!--Modal editar-->
+  <div
+  class="modal fade"
+  id="editProyectosModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="editProyectosModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" id="edit-modal-header">
+        <h5 class="modal-title" id="editProyectosModalLabel">
+          {{ editProyectos?.nombrePro}}
+        </h5>
+      </div>
+      <div class="modal-body" id="edit-modal-body">
+        <form #editForm="ngForm">
+          <div class="form-group row mb-2">
+            <label for="nombrePro" class="col-sm-2 col-form-label"
+              >Nombre</label
+            >
+            <div class="form-group col-sm-10">
+              <input
+                type="text"
+                ngModel="{{ editProyectos?.nombrePro }}"
+                name="nombrePro"
+                class="form-control"
+                id="nombrePro"
+                placeholder="Nombre del Proyecto"
+                #nombreCer="ngModel"
+              />
+            </div>
+            <div class="form-group col-sm-10">
+              <input
+                type="hidden"
+                ngModel="{{ editProyectos?.idPro }}"
+                name="idPro"
+                class="form-control"
+                id="idPro"
+                #idCer="ngModel"
+              />
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <label for="descPro" class="col-sm-2 col-form-label"
+              >Descripción</label
+            >
+            <div class="col-sm-10">
+              <input
+                type="text"
+                ngModel="{{ editProyectos?.descPro}}"
+                name="descPro"
+                class="form-control"
+                id="descPro"
+                placeholder="Descripción"
+                #linkCer="ngModel"
+              />
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <label for="imagenPro" class="col-sm-2 col-form-label"
+              >Imagen</label
+            >
+            <div class="col-sm-10">
+              <input
+                type="text"
+                ngModel="{{ editProyectos?.imgPro}}"
+                name="imgPro"
+                class="form-control"
+                id="imgPro"
+                placeholder="Imagen"
+                #iconoCer="ngModel"
+              />
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <label for="codPro" class="col-sm-2 col-form-label"
+              >Repositorio</label
+            >
+            <div class="col-sm-10">
+              <input
+                type="text"
+                ngModel="{{ editProyectos?.codPro}}"
+                name="codPro"
+                class="form-control"
+                id="codPro"
+                placeholder="Repositorio"
+                #iconoCer="ngModel"
+              />
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <label for="pagPro" class="col-sm-2 col-form-label"
+              >Página</label
+            >
+            <div class="col-sm-10">
+              <input
+                type="text"
+                ngModel="{{ editProyectos?.pagPro}}"
+                name="pagPro"
+                class="form-control"
+                id="pagPro"
+                placeholder="Página"
+                #iconoCer="ngModel"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer" id="edit-modal-footer">
+        <button
+          type="button"
+          class="btn btn-outline-dark"
+          data-dismiss="modal"
+          id="edit-proyectos-form"
+        >
+          Cerrar
+        </button>
+        <button
+          (click)="onUpdateProyectos(editForm.value)"
+          data-dismiss="modal"
+          class="btn btn-outline-dark"
+        >
+          Guardar Cambios
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Modal borrar-->
+<div
+class="modal fade"
+id="deleteProyectosModal"
+tabindex="-1"
+role="dialog"
+aria-labelledby="deleteProyectosModalLabel"
+aria-hidden="true"
+>
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header" id="delete-modal-header">
+      <h5 class="modal-title" id="deleteProyectosModalLabel">
+        Eliminar Proyecto
+      </h5>
+    </div>
+    <div class="modal-body" id="delete-modal-body">
+      <p>¿está seguro de eliminar el item?</p>
+      <p class="text-center" style="color: white">
+        {{ deleteProyectos?.nombrePro }}<br />
+        {{ deleteProyectos?.descPro }}
+      </p>
+    </div>
+    <div class="modal-footer" id="delete-modal-footer">
+      <button
+        type="button"
+        class="btn btn-outline-dark"
+        data-dismiss="modal"
+        id="delete-proyectos-form"
+      >
+        No
+      </button>
+      <button
+        (click)="onDeleteProyectos(deleteProyectos!.idPro)"
+        data-dismiss="modal"
+        class="btn btn-outline-dark"
+      >
+        Si
+      </button>
+    </div>
+  </div>
+</div>
+</div>
+</div>

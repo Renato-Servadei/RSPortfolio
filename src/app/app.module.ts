@@ -17,6 +17,7 @@ import { EducacionComponent } from './components/educacion/educacion.component';
 import { ExperienciaComponent } from './components/experiencia/experiencia.component';
 import { CertificacionesComponent } from './components/certificaciones/certificaciones.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { BlandasComponent } from './components/blandas/blandas.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
     EducacionComponent,
     ExperienciaComponent,
     CertificacionesComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    BlandasComponent
   ],
   imports: [
     BrowserModule,
