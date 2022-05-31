@@ -20,7 +20,7 @@ public editPersona : Persona | undefined;
   }
 
   public getPersona() {
-    this.personaService.getPersona().subscribe({
+    this.personaService.getPersona(1).subscribe({
       next:(response : Persona)=>{
         this.persona = response;
       },

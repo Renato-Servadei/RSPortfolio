@@ -13,19 +13,19 @@ export class CertificacionesService {
   constructor(private http: HttpClient) { }
 
   public getCertificaciones():Observable<Certificaciones[]> {
-    return this.http.get<Certificaciones[]>(`${this.apiServerUrl}/certificaciones/ver`);
+    return this.http.get<Certificaciones[]>(`${this.apiServerUrl}/certificaciones`);
   }
 
   public addCertificaciones(Certificaciones: Certificaciones):Observable<Certificaciones> {
-    return this.http.post<Certificaciones>(`${this.apiServerUrl}/certificaciones/crear`, Certificaciones);
+    return this.http.post<Certificaciones>(`${this.apiServerUrl}/certificaciones`, Certificaciones);
   }
   
   public updateCertificaciones(Certificaciones: Certificaciones):Observable<Certificaciones> {
-    return this.http.put<Certificaciones>(`${this.apiServerUrl}/certificaciones/editar`, Certificaciones);
+    return this.http.put<Certificaciones>(`${this.apiServerUrl}/certificaciones`, Certificaciones);
   }
 
   public deleteCertificaciones(CertificacionesId: number):Observable<void> {
-    return this.http.delete<void>(`${this.apiServerUrl}/certificaciones/borrar/${CertificacionesId}`);
+    return this.http.delete<void>(`${this.apiServerUrl}/certificaciones/${CertificacionesId}`);
   }
 
 

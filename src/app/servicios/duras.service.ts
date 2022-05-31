@@ -14,19 +14,19 @@ export class DurasService {
   constructor(private http: HttpClient) { }
 
   public getDuras():Observable<Duras[]> {
-    return this.http.get<Duras[]>(`${this.apiServerUrl}/duras/ver`);
+    return this.http.get<Duras[]>(`${this.apiServerUrl}/duras`);
   }
 
-  public addDuras(Duras: Duras):Observable<Duras> {
-    return this.http.post<Duras>(`${this.apiServerUrl}/duras/crear`, Duras);
+  public addDuras(duras: Duras):Observable<Duras> {
+    return this.http.post<Duras>(`${this.apiServerUrl}/duras`, duras);
   }
   
-  public updateDuras(Duras: Duras):Observable<Duras> {
-    return this.http.put<Duras>(`${this.apiServerUrl}/duras/editar`, Duras);
+  public updateDuras(duras: Duras):Observable<Duras> {
+    return this.http.put<Duras>(`${this.apiServerUrl}/duras`, duras);
   }
 
-  public deleteDuras(DurasId: number):Observable<void> {
-    return this.http.delete<void>(`${this.apiServerUrl}/duras/borrar/${DurasId}`);
+  public deleteDuras(durasId: number):Observable<void> {
+    return this.http.delete<void>(`${this.apiServerUrl}/duras/${durasId}`);
   }
 
 

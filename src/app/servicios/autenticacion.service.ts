@@ -8,28 +8,28 @@ import { map } from 'rxjs/operators';
 })
 export class AutenticacionService {
 
-  url="localhost:8080";
+  url="http://localhost:8080/api/login";
   currentUserSubject : BehaviorSubject<any>;
   constructor(private http : HttpClient) { 
-    console.log(
-      "el servicio esta corriendo"
-    )
+
     this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(sessionStorage.getItem('currentUser') || '{}'));
   }
 
-  // IniciarSesion(credenciales: any):Observable<any> {
+  IniciarSesion(credenciales: any):Observable<any> {
 
-  //   return this.http.post(this.url, credenciales).pipe(map(data=>{
+    return this.http.post(this.url, credenciales).pipe(map(data=>{
 
-  //     sessionStorage.setItem('currentUser', JSON.stringify(data));
-  //     this.currentUserSubject.next(data);
+      sessionStorage.setItem('currentUser', JSON.stringify(data));
+      this.currentUserSubject.next(data);
 
-  //     return data
-  // //   }))
-  // }
+      return data
+   }))
+  }
 
-  // // get UsuarioAutenticado() {
+  get UsuarioAutenticado() {
 
-  // //   return this.currentUserSubject.value;
-  // // }
+    return this.currentUserSubject.value;
+    
+  }
+
 }

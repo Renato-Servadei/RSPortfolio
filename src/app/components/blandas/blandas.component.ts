@@ -12,8 +12,6 @@ import { ReactiveFormsModule, NgForm, FormsModule} from '@angular/forms'
 })
 export class BlandasComponent implements OnInit {
 
-
-  
   public blandas: Blandas[] = [];
   public editBlandas: Blandas | undefined;
   public deleteBlandas: Blandas | undefined;

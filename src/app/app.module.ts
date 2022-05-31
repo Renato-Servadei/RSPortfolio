@@ -18,6 +18,8 @@ import { ExperienciaComponent } from './components/experiencia/experiencia.compo
 import { CertificacionesComponent } from './components/certificaciones/certificaciones.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { BlandasComponent } from './components/blandas/blandas.component';
+import { InterceptorService } from './servicios/interceptor.service';
+import { PersonaService } from './servicios/persona.service';
 
 
 @NgModule({
@@ -43,7 +45,7 @@ import { BlandasComponent } from './components/blandas/blandas.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [PortfolioDataService ],//, {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi : true}],
+  providers: [PersonaService, {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi : true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

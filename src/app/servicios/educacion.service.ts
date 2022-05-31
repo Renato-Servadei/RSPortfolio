@@ -14,19 +14,19 @@ export class EducacionService {
   constructor(private http: HttpClient) { }
 
   public getEducacion():Observable<Educacion[]> {
-    return this.http.get<Educacion[]>(`${this.apiServerUrl}/educacion/ver`);
+    return this.http.get<Educacion[]>(`${this.apiServerUrl}/educacion`);
   }
 
   public addEducacion(educacion: Educacion):Observable<Educacion> {
-    return this.http.post<Educacion>(`${this.apiServerUrl}/educacion/crear`, educacion);
+    return this.http.post<Educacion>(`${this.apiServerUrl}/educacion`, educacion);
   }
   
   public updateEducacion(educacion: Educacion):Observable<Educacion> {
-    return this.http.put<Educacion>(`${this.apiServerUrl}/educacion/editar`, educacion);
+    return this.http.put<Educacion>(`${this.apiServerUrl}/educacion`, educacion);
   }
 
   public deleteEducacion(educacionId: number):Observable<void> {
-    return this.http.delete<void>(`${this.apiServerUrl}/educacion/borrar/${educacionId}`);
+    return this.http.delete<void>(`${this.apiServerUrl}/educacion/${educacionId}`);
   }
 
 

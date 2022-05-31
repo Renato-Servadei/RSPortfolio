@@ -35,7 +35,7 @@
                     <a class="nav-link" href="https://codepen.io/RenatoServadei"><i class="fa-brands fa-codepen"></i></a>
                 </li>
                 <li class="nav-item">
-                    <button type="button" class="btn btn-outline-light btn-sm mt-1" routerLink="/login">Entrar</button>
+                    <button type="button" class="btn btn-outline-light btn-sm mt-1" routerLink="/login" *ngIf="(!isLogged)">Entrar</button>
                 </li>
             </ul>
         </div>

@@ -11,7 +11,7 @@ import { AutenticacionService } from '../../servicios/autenticacion.service';
 export class LoginComponent implements OnInit {
 
   form : FormGroup;
-  constructor(private formBuilder : FormBuilder) {//, private autenticacion: AutenticacionService, private ruta: Router) { 
+  constructor(private formBuilder : FormBuilder, private autenticacion: AutenticacionService, private ruta: Router) { 
       this.form = this.formBuilder.group( {
         email : ['', [Validators.required, Validators.email]],
         password : ['', [Validators.required, Validators.minLength(8)]],
@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
         //   notificationToken : ['67657575eececc34']
         // }) 
       })
-}
+} 
 
   ngOnInit(): void {
   }
@@ -35,12 +35,12 @@ export class LoginComponent implements OnInit {
     return this.form.get('password');
   }
 
-  // onEnviar(event: Event) {
+  onEnviar(event: Event) {
 
-  //   event.preventDefault;
-  //   this.autenticacion.IniciarSesion(this.form.value).subscribe(data => {
-  //     console.log("DATA:" + JSON.stringify(data));
-  //     this.ruta.navigate(['/portfolio'])
-  //   })
-  // }
+    event.preventDefault;
+    this.autenticacion.IniciarSesion(this.form.value).subscribe(data => {
+      console.log("DATA:" + JSON.stringify(data));
+      this.ruta.navigate(['/portfolio'])
+    })
+  }
 }

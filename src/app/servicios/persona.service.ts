@@ -13,12 +13,13 @@ export class PersonaService {
 
   constructor(private http: HttpClient) { }
 
-  public getPersona():Observable<Persona> {
-    return this.http.get<Persona>(`${this.apiServerUrl}/persona/ver/1`);
+  public getPersona(idPer: number):Observable<Persona> {
+    return this.http.get<Persona>(`${this.apiServerUrl}/persona/${idPer}`);
+    
   }
 
   
   public updatePersona(persona : Persona):Observable<Persona> {
-    return this.http.put<Persona>(`${this.apiServerUrl}/persona/editar`, persona);
+    return this.http.put<Persona>(`${this.apiServerUrl}/persona`, persona);
   }
 }
