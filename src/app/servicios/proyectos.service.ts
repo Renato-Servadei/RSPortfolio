@@ -8,24 +8,24 @@ import { Proyectos } from '../model/proyectos';
   providedIn: 'root'
 })
 export class ProyectosService {
-  private apiServerUrl = "https://rsportfolio-argprog.herokuapp.com/api";
+  private apiServerUrl = "https://rsportfolio-argprog.herokuapp.com";
 
   constructor(private http: HttpClient) { }
 
   public getProyectos():Observable<Proyectos[]> {
-    return this.http.get<Proyectos[]>(`${this.apiServerUrl}/proyectos`);
+    return this.http.get<Proyectos[]>(`${this.apiServerUrl}/api/proyectos`);
   }
 
   public addProyectos(proyectos: Proyectos):Observable<Proyectos> {
-    return this.http.post<Proyectos>(`${this.apiServerUrl}/proyectos`, proyectos);
+    return this.http.post<Proyectos>(`${this.apiServerUrl}/api/proyectos`, proyectos);
   }
   
   public updateProyectos(proyectos: Proyectos):Observable<Proyectos> {
-    return this.http.put<Proyectos>(`${this.apiServerUrl}/proyectos`, proyectos);
+    return this.http.put<Proyectos>(`${this.apiServerUrl}/api/proyectos`, proyectos);
   }
 
   public deleteProyectos(proyectosId: number):Observable<void> {
-    return this.http.delete<void>(`${this.apiServerUrl}/proyectos/${proyectosId}`);
+    return this.http.delete<void>(`${this.apiServerUrl}/api/proyectos/${proyectosId}`);
   }
 
 

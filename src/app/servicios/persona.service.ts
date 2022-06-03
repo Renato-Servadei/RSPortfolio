@@ -9,17 +9,17 @@ import { Persona } from '../model/persona';
 })
 export class PersonaService {
 
-  private apiServerUrl = "https://rsportfolio-argprog.herokuapp.com/api";
+  private apiServerUrl = "https://rsportfolio-argprog.herokuapp.com";
 
   constructor(private http: HttpClient) { }
 
   public getPersona(idPer: number):Observable<Persona> {
-    return this.http.get<Persona>(`${this.apiServerUrl}/persona/${idPer}`);
+    return this.http.get<Persona>(`${this.apiServerUrl}/api/persona/${idPer}`);
     
   }
 
   
   public updatePersona(persona : Persona):Observable<Persona> {
-    return this.http.put<Persona>(`${this.apiServerUrl}/persona`, persona);
+    return this.http.put<Persona>(`${this.apiServerUrl}/api/persona`, persona);
   }
 }

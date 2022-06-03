@@ -9,24 +9,24 @@ import { Blandas } from '../model/habilidades blandas';
 })
 export class BlandasService {
 
-  private apiServerUrl = "https://rsportfolio-argprog.herokuapp.com/api";
+  private apiServerUrl = "https://rsportfolio-argprog.herokuapp.com";
 
   constructor(private http: HttpClient) { }
 
   public getBlandas():Observable<Blandas[]> {
-    return this.http.get<Blandas[]>(`${this.apiServerUrl}/blandas`);
+    return this.http.get<Blandas[]>(`${this.apiServerUrl}/api/blandas`);
   }
 
   public addBlandas(blandas: Blandas):Observable<Blandas> {
-    return this.http.post<Blandas>(`${this.apiServerUrl}/blandas`, blandas);
+    return this.http.post<Blandas>(`${this.apiServerUrl}/api/blandas`, blandas);
   }
   
   public updateBlandas(blandas: Blandas):Observable<Blandas> {
-    return this.http.put<Blandas>(`${this.apiServerUrl}/blandas`, blandas);
+    return this.http.put<Blandas>(`${this.apiServerUrl}/api/blandas`, blandas);
   }
 
   public deleteBlandas(blandasId: number):Observable<void> {
-    return this.http.delete<void>(`${this.apiServerUrl}/blandas/${blandasId}`);
+    return this.http.delete<void>(`${this.apiServerUrl}/api/blandas/${blandasId}`);
   }
 
 

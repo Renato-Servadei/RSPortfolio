@@ -8,24 +8,24 @@ import { Certificaciones } from '../model/certificaciones';
   providedIn: 'root'
 })
 export class CertificacionesService {
-  private apiServerUrl = "https://rsportfolio-argprog.herokuapp.com/api"
+  private apiServerUrl = "https://rsportfolio-argprog.herokuapp.com"
 
   constructor(private http: HttpClient) { }
 
   public getCertificaciones():Observable<Certificaciones[]> {
-    return this.http.get<Certificaciones[]>(`${this.apiServerUrl}/certificaciones`);
+    return this.http.get<Certificaciones[]>(`${this.apiServerUrl}/api/certificaciones`);
   }
 
   public addCertificaciones(Certificaciones: Certificaciones):Observable<Certificaciones> {
-    return this.http.post<Certificaciones>(`${this.apiServerUrl}/certificaciones`, Certificaciones);
+    return this.http.post<Certificaciones>(`${this.apiServerUrl}/api/certificaciones`, Certificaciones);
   }
   
   public updateCertificaciones(Certificaciones: Certificaciones):Observable<Certificaciones> {
-    return this.http.put<Certificaciones>(`${this.apiServerUrl}/certificaciones`, Certificaciones);
+    return this.http.put<Certificaciones>(`${this.apiServerUrl}/api/certificaciones`, Certificaciones);
   }
 
   public deleteCertificaciones(CertificacionesId: number):Observable<void> {
-    return this.http.delete<void>(`${this.apiServerUrl}/certificaciones/${CertificacionesId}`);
+    return this.http.delete<void>(`${this.apiServerUrl}/api/certificaciones/${CertificacionesId}`);
   }
 
 
