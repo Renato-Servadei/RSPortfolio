@@ -9,7 +9,7 @@ import { Blandas } from '../model/habilidades blandas';
 })
 export class BlandasService {
 
-  private apiServerUrl = environment.apiBaseUrl;
+  private apiServerUrl = "https://rsportfolio-argprog.herokuapp.com/api";
 
   constructor(private http: HttpClient) { }
 

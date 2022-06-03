@@ -8,7 +8,7 @@ import { Certificaciones } from '../model/certificaciones';
   providedIn: 'root'
 })
 export class CertificacionesService {
-  private apiServerUrl = environment.apiBaseUrl;
+  private apiServerUrl = "https://rsportfolio-argprog.herokuapp.com/api"
 
   constructor(private http: HttpClient) { }
 

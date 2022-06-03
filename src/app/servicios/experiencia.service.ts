@@ -8,8 +8,8 @@ import { Experiencia } from '../model/experiencia';
   providedIn: 'root'
 })
 export class ExperienciaService {
-
-  private apiServerUrl = environment.apiBaseUrl;
+  
+  private apiServerUrl = "https://rsportfolio-argprog.herokuapp.com/api"
 
   constructor(private http: HttpClient) { }
 

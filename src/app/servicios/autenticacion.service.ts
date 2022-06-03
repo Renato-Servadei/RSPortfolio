@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 })
 export class AutenticacionService {
 
-  url="http://localhost:8080/api/login";
+  url="https://rsportfolio-argprog.herokuapp.com/api/login";
   currentUserSubject : BehaviorSubject<any>;
   constructor(private http : HttpClient) { 
 

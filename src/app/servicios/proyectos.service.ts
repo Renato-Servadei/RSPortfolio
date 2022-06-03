@@ -8,7 +8,7 @@ import { Proyectos } from '../model/proyectos';
   providedIn: 'root'
 })
 export class ProyectosService {
-  private apiServerUrl = environment.apiBaseUrl;
+  private apiServerUrl = "https://rsportfolio-argprog.herokuapp.com/api";
 
   constructor(private http: HttpClient) { }
 
