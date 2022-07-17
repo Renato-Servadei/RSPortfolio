@@ -8,25 +8,26 @@ import { Educacion } from '../model/educacion';
   providedIn: 'root'
 })
 export class EducacionService {
-
-  private apiServerUrl = "https://rsportfolio-argprog.herokuapp.com"
+//private apiServerUrl = "https://rsportfolio-argprog.herokuapp.com";
+private apiServerUrl = "http://localhost:8080"
+  
 
   constructor(private http: HttpClient) { }
 
   public getEducacion():Observable<Educacion[]> {
-    return this.http.get<Educacion[]>(`${this.apiServerUrl}/api/educacion`);
+    return this.http.get<Educacion[]>(`${this.apiServerUrl}/educacion/ver`);
   }
 
   public addEducacion(educacion: Educacion):Observable<Educacion> {
-    return this.http.post<Educacion>(`${this.apiServerUrl}/api/educacion`, educacion);
+    return this.http.post<Educacion>(`${this.apiServerUrl}/educacion/crear`, educacion);
   }
   
   public updateEducacion(educacion: Educacion):Observable<Educacion> {
-    return this.http.put<Educacion>(`${this.apiServerUrl}/api/educacion`, educacion);
+    return this.http.put<Educacion>(`${this.apiServerUrl}/educacion/editar`, educacion);
   }
 
   public deleteEducacion(educacionId: number):Observable<void> {
-    return this.http.delete<void>(`${this.apiServerUrl}/api/educacion/${educacionId}`);
+    return this.http.delete<void>(`${this.apiServerUrl}/educacion/borrar/${educacionId}`);
   }
 
 

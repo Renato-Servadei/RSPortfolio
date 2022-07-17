@@ -2,8 +2,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Certificaciones } from 'src/app/model/certificaciones';
 import { CertificacionesService } from 'src/app/servicios/certificaciones.service';
-import { PortfolioDataService } from 'src/app/servicios/portfolio-data.service';
 import { ReactiveFormsModule, FormsModule, NgForm } from '@angular/forms'
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-certificaciones',
@@ -15,15 +15,22 @@ export class CertificacionesComponent implements OnInit {
   public certificaciones: Certificaciones[] = [];
   public editCertificaciones: Certificaciones | undefined;
   public deleteCertificaciones: Certificaciones | undefined;
+  roles : string[] = [];
+  isAdmin = false;
+  
 
-  constructor(private certService: CertificacionesService) { }
+  constructor(private certService: CertificacionesService, private tokenService: TokenService) { }
 
   ngOnInit(): void {
     
     this.getCertificaciones();
-  
+    this.tokenService.getAuthorities();
+    this.tokenService.roles.forEach(rol => {
+    if (rol === ("ROLE_ADMIN")) {
+      this.isAdmin = true;
     }
-
+  });
+  }
 
     public getCertificaciones():void {
       this.certService.getCertificaciones().subscribe({

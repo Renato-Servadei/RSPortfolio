@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Proyectos } from 'src/app/model/proyectos';
 import { ProyectosService } from 'src/app/servicios/proyectos.service';
 import { ReactiveFormsModule, NgForm, FormsModule} from '@angular/forms'
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-projects',
@@ -15,12 +16,20 @@ export class ProjectsComponent implements OnInit {
   public proyectos: Proyectos[] = [];
   public editProyectos: Proyectos | undefined;
   public deleteProyectos: Proyectos | undefined;
-
-  constructor(private proService: ProyectosService) { }
+  roles : string[] = [];
+  isAdmin = false;
+  
+  constructor(private proService: ProyectosService, private tokenService : TokenService) { }
 
   ngOnInit(): void {
     
     this.getProyectos();
+    this.tokenService.getAuthorities();
+    this.tokenService.roles.forEach(rol => {
+    if (rol === ("ROLE_ADMIN")) {
+      this.isAdmin = true;
+    }
+  });
   
     }
 
@@ -29,7 +38,6 @@ export class ProjectsComponent implements OnInit {
       this.proService.getProyectos().subscribe({
         next:(Response: Proyectos[]) => {
           this.proyectos = Response;
-          console.log(this.proyectos)
         },
 
         error: (error: HttpErrorResponse) => {

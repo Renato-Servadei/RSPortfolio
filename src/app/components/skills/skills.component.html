@@ -1,43 +1,79 @@
 <app-navbar></app-navbar>
 <div class="skills">
-    <div class="text-center my-5">
-        <button type="button" id="button-add" class="btn btn-outline-light mb-3" data-toggle="modal" data-target="#addDurasModal" (click)="onOpenModal('add')">
+  <div class="text-center">
+    <button
+      *ngIf="isAdmin"
+      type="button"
+      id="button-add"
+      class="btn btn-outline-light mb-2"
+      data-toggle="modal"
+      data-target="#addDurasModal"
+      (click)="onOpenModal('add')"
+    >
       <a class="nav-link"
-        >añadir habilidad
+        ><i class="fa-solid fa-square-plus fa-1x"></i>
         <span class="sr-only">(current)</span>
       </a>
     </button>
-    </div>
-    <div class="hard ml" id="main-container">
-        <ul class="row d-flex justify-content-center">
-            <li class="col-2 mt-2" *ngFor="let hard of duras">
-                <p class="flex-column align-items-center">
-                    <i class="{{ hard.iconoDuras }}"></i>
-                </p>
+  </div>
+  <div class="hard ml" id="main-container">
+    <ul class="row d-flex justify-content-center">
+      <li class="col-2 mt-2" *ngFor="let hard of duras">
+        <p class="flex-column align-items-center">
+          <i
+            class="{{ hard.iconoDuras }}"
+            class="animated__animate animate__heartBeat"
+          ></i>
+        </p>
 
-                <p class="col">
-                    <a (click)="onOpenModal('edit', hard)" class="btn btn-outline-light tooltips" data-placement="left " data-toggle="tooltip " data-original-title="Edit" data-target="#editDurasModal"><i class="fa fa-pencil fa2-xs"></i
+        <p *ngIf="isAdmin" class="col">
+          <a
+            (click)="onOpenModal('edit', hard)"
+            class="btn btn-outline-light tooltips"
+            data-placement="left "
+            data-toggle="tooltip "
+            data-original-title="Edit"
+            data-target="#editDurasModal"
+            ><i class="fa fa-pencil fa2-xs"></i
           ></a>
-                    <a (click)="onOpenModal('delete', hard)" class="btn btn-outline-light tooltips" data-placement="right " data-toggle="tooltip " data-original-title="Delete" data-target="#deleteDurasModal"><i class="fa fa-times fa2-xs"></i
+          <a
+            (click)="onOpenModal('delete', hard)"
+            class="btn btn-outline-light tooltips"
+            data-placement="right "
+            data-toggle="tooltip "
+            data-original-title="Delete"
+            data-target="#deleteDurasModal"
+            ><i class="fa fa-times fa2-xs"></i
           ></a>
-                </p>
-            </li>
-        </ul>
-        <div class="d-flex flex-row justify-content-center align-items-baseline mt-5 pt-4" id="links">
-            <h3><a class="nav-link" routerLink="/blandas">Habilidades Blandas</a></h3>
-        </div>
+        </p>
+      </li>
+    </ul>
+    <div
+      class="d-flex flex-row justify-content-center align-items-baseline mt-5 pt-4"
+      id="links"
+    >
+      <h3><a class="nav-link" routerLink="/blandas">Habilidades Blandas</a></h3>
     </div>
-    <!-- Modal agregar-->
-    <div class="modal fade" id="addDurasModal" tabindex="-1" role="dialog" aria-labelledby="addDurasModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header text-center" id="add-modal-header">
-                    <h5 class="modal-title" id="addDurasModalLabel">Añadir Habilidad</h5>
-                </div>
-                <div class="modal-body" id="add-modal-body">
-                    <form #addForm="ngForm" (ngSubmit)="onAddDuras(addForm)">
-                        <div class="form-group row mb-2">
-                            <label for="nombreDuras" class="col-sm-2 col-form-label">Nombre</label
+  </div>
+  <!-- Modal agregar-->
+  <div
+    class="modal fade"
+    id="addDurasModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="addDurasModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center" id="add-modal-header">
+          <h5 class="modal-title" id="addDurasModalLabel">Añadir Habilidad</h5>
+        </div>
+        <div class="modal-body" id="add-modal-body">
+          <form #addForm="ngForm" (ngSubmit)="onAddDuras(addForm)">
+            <div class="form-group row mb-2">
+              <label for="nombreDuras" class="col-sm-2 col-form-label"
+                >Nombre</label
               >
               <div class="form-group col-sm-10">
                 <input

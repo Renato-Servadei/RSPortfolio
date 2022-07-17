@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Duras } from 'src/app/model/habilidades duras';
 import { DurasService } from 'src/app/servicios/duras.service';
 import { ReactiveFormsModule, NgForm, FormsModule} from '@angular/forms'
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-skills',
@@ -16,15 +17,22 @@ export class SkillsComponent implements OnInit {
   public duras: Duras[] = [];
   public editDuras: Duras | undefined;
   public deleteDuras: Duras | undefined;
-
+  roles : string[] = [];
+  isAdmin = false;
   
-  constructor(private durasService: DurasService) { }
+  
+  constructor(private durasService: DurasService, private tokenService: TokenService) { }
 
   ngOnInit(): void {
     
     this.getDuras();
+    this.tokenService.getAuthorities();
+    this.tokenService.roles.forEach(rol => {
+    if (rol === ("ROLE_ADMIN")) {
+      this.isAdmin = true;
+    }
+  });
     
-  
     }
 
    

@@ -8,7 +8,6 @@ import { BannerComponent } from './components/banner/banner.component';
 import { AboutComponent } from './components/about/about.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { SkillsComponent } from './components/skills/skills.component';
-import { PortfolioDataService } from './servicios/portfolio-data.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ContactComponent } from './components/contact/contact.component';
 import { LoginComponent } from './components/login/login.component';
@@ -16,10 +15,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EducacionComponent } from './components/educacion/educacion.component';
 import { ExperienciaComponent } from './components/experiencia/experiencia.component';
 import { CertificacionesComponent } from './components/certificaciones/certificaciones.component';
-import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { BlandasComponent } from './components/blandas/blandas.component';
-import { InterceptorService } from './servicios/interceptor.service';
 import { PersonaService } from './servicios/persona.service';
+import { RegistroComponent } from './components/registro/registro.component';
+import { AuthService } from './servicios/auth.service';
+import { TokenService } from './servicios/token.service';
+import { InterceptorProvider } from './servicios/interceptor.service';
 
 
 @NgModule({
@@ -35,8 +36,8 @@ import { PersonaService } from './servicios/persona.service';
     EducacionComponent,
     ExperienciaComponent,
     CertificacionesComponent,
-    PortfolioComponent,
-    BlandasComponent
+    BlandasComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +46,7 @@ import { PersonaService } from './servicios/persona.service';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [PersonaService, {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi : true}],
+  providers: [PersonaService, AuthService, TokenService, InterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { Experiencia } from 'src/app/model/experiencia';
 import { ExperienciaService } from 'src/app/servicios/experiencia.service';
-import { PortfolioDataService } from 'src/app/servicios/portfolio-data.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-experiencia',
@@ -16,12 +16,20 @@ export class ExperienciaComponent implements OnInit {
   public experiencias: Experiencia[] = [];
   public editExperiencia: Experiencia | undefined;
   public deleteExperiencia: Experiencia | undefined;
+  roles : string[] = [];
+  isAdmin = false;
 
-  constructor(private expService: ExperienciaService) { }
+  constructor(private expService: ExperienciaService, private tokenService : TokenService) { }
 
   ngOnInit(): void {
     
     this.getExperiencias();
+    this.tokenService.getAuthorities();
+    this.tokenService.roles.forEach(rol => {
+    if (rol === ("ROLE_ADMIN")) {
+      this.isAdmin = true;
+    }
+  });
   
     }
 

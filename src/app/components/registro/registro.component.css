@@ -1,4 +1,4 @@
-#login-body {
+#registro-body {
     position: relative;
     height: 100vh;
     padding-top: 5em;
@@ -7,13 +7,13 @@
     text-shadow: 1px 1px 1px white;
 }
 
-#login-card {
+#registro-card {
     position: relative;
-    top: 7em;
+    top: 3em;
     background-color: rgba(248, 166, 15, 0.7);
 }
+
 
 a.nav-link {
     color: black !important;
 }
-

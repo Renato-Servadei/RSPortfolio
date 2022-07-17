@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { Blandas } from 'src/app/model/habilidades blandas';
 import { BlandasService } from 'src/app/servicios/blandas.service';
 import { ReactiveFormsModule, NgForm, FormsModule} from '@angular/forms'
+import { TokenService } from 'src/app/servicios/token.service';
+
 
 @Component({
   selector: 'app-blandas',
@@ -11,18 +13,25 @@ import { ReactiveFormsModule, NgForm, FormsModule} from '@angular/forms'
   styleUrls: ['./blandas.component.css']
 })
 export class BlandasComponent implements OnInit {
-
+  
   public blandas: Blandas[] = [];
   public editBlandas: Blandas | undefined;
   public deleteBlandas: Blandas | undefined;
+  roles : string[] = [];
+  isAdmin = false;
+  
 
-  constructor(private blandasService: BlandasService) { }
+  constructor(private blandasService: BlandasService, private tokenService: TokenService) { }
 
   ngOnInit(): void {
-    
-   
+    this.tokenService.getAuthorities();
     this.getBlandas();
-  
+    this.tokenService.roles.forEach(rol => {
+    if (rol === ("ROLE_ADMIN")) {
+      this.isAdmin = true;
+    }
+  });
+
     }
 
  

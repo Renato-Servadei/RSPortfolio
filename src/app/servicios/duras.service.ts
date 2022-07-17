@@ -9,24 +9,25 @@ import { Duras } from '../model/habilidades duras';
 })
 
 export class DurasService {
-  private apiServerUrl = "https://rsportfolio-argprog.herokuapp.com"
-
+//private apiServerUrl = "https://rsportfolio-argprog.herokuapp.com";
+private apiServerUrl = "http://localhost:8080"
+  
   constructor(private http: HttpClient) { }
 
   public getDuras():Observable<Duras[]> {
-    return this.http.get<Duras[]>(`${this.apiServerUrl}/api/duras`);
+    return this.http.get<Duras[]>(`${this.apiServerUrl}/duras/ver`);
   }
 
   public addDuras(duras: Duras):Observable<Duras> {
-    return this.http.post<Duras>(`${this.apiServerUrl}/api/duras`, duras);
+    return this.http.post<Duras>(`${this.apiServerUrl}/duras/crear`, duras);
   }
   
   public updateDuras(duras: Duras):Observable<Duras> {
-    return this.http.put<Duras>(`${this.apiServerUrl}/api/duras`, duras);
+    return this.http.put<Duras>(`${this.apiServerUrl}/duras/editar`, duras);
   }
 
   public deleteDuras(durasId: number):Observable<void> {
-    return this.http.delete<void>(`${this.apiServerUrl}/api/duras/${durasId}`);
+    return this.http.delete<void>(`${this.apiServerUrl}/duras/borrar/${durasId}`);
   }
 
 

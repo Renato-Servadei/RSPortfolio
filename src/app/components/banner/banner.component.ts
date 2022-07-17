@@ -1,24 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { PortfolioDataService } from '../../servicios/portfolio-data.service';
 
 @Component({
   selector: 'app-banner',
   templateUrl: './banner.component.html',
   styleUrls: ['./banner.component.css']
 })
-export class BannerComponent implements OnInit {
+export class BannerComponent {
 
   myPortfolio: any;
 
-  constructor(private portfolioData: PortfolioDataService) { }
+  constructor() { }
 
-  ngOnInit(): void {
-    
-    this.portfolioData.getData().subscribe(data =>{
-      this.myPortfolio = data;
-      console.log(data)
-    });
   }
 
-}
+

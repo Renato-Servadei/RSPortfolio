@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <div class="cert">
-    <button type="button" id="button-add" class="btn btn-outline-light mb-3" data-toggle="modal" data-target="#addCertificacionesModal" (click)="onOpenModal('add')">
+    <button *ngIf="isAdmin" type="button" id="button-add" class="btn btn-outline-light mb-3" data-toggle="modal" data-target="#addCertificacionesModal" (click)="onOpenModal('add')">
     <a class="nav-link"
       ><i class="fa-solid fa-square-plus fa-1x"></i>
       <span class="sr-only">(current)</span>
@@ -16,9 +16,9 @@
                     <p class="col-3 pt-2">
                         <a href="{{cert.linkCer}}">link</a></p>
                     <p class="col">
-                        <a (click)="onOpenModal('edit', cert)" class="btn btn-outline-light tooltips" data-placement="left" data-toggle="tooltip" data-original-title="Edit" data-target="#editCertificacionesModal"><i class="fa fa-pencil fa2-xs"></i
+                        <a *ngIf="isAdmin" (click)="onOpenModal('edit', cert)" class="btn btn-outline-light tooltips" data-placement="left" data-toggle="tooltip" data-original-title="Edit" data-target="#editCertificacionesModal"><i class="fa fa-pencil fa2-xs"></i
                         ></a>
-                        <a (click)="onOpenModal('delete', cert)" class="btn btn-outline-light tooltips" data-placement="right" data-toggle="tooltip" data-original-title="Delete" data-target="#deleteCertificacionesModal"><i class="fa fa-times fa2-xs"></i
+                        <a *ngIf="isAdmin" (click)="onOpenModal('delete', cert)" class="btn btn-outline-light tooltips" data-placement="right" data-toggle="tooltip" data-original-title="Delete" data-target="#deleteCertificacionesModal"><i class="fa fa-times fa2-xs"></i
                         ></a>
                     </p>
                 </li>
@@ -27,7 +27,7 @@
         <div class="d-flex flex-row justify-content-center align-items-baseline mt-5 pt-4">
 
             <h3><a class="nav-link" routerLink="/educacion">Educación</a></h3>
-            <h3><a class="nav-link" routerLink="/experiencia">Certificaciones</a></h3>
+            <h3><a class="nav-link" routerLink="/experiencia">Experiencia</a></h3>
             <h3><a class="nav-link" routerLink="/about">Volver</a></h3>
         </div>
     </div>

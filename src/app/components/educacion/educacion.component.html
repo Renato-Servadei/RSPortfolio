@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <div class="edu main-container">
-    <button type="button" id="button-add" class="btn btn-outline-light mb-3" data-toggle="modal" data-target="#addEducationModal" (click)="onOpenModal('add')">
+    <button *ngIf="isAdmin" type="button" id="button-add" class="btn btn-outline-light" data-toggle="modal" data-target="#addEducationModal" (click)="onOpenModal('add')">
     <a class="nav-link"
       ><i class="fa-solid fa-square-plus fa-1x"></i>
       <span class="sr-only">(current)</span>
@@ -14,7 +14,7 @@
                 <p class="col mb-4 pt-2">{{ edu.institucionEdu }}</p>
                 <img src="" />
 
-                <p class="col">
+                <p *ngIf="isAdmin" class="col">
                     <a (click)="onOpenModal('edit', edu)" class="btn btn-outline-light tooltips" data-placement="left" data-toggle="tooltip" data-original-title="Edit" data-target="#editEducationModal"><i class="fa fa-pencil fa2-xs"></i
           ></a>
                     <a (click)="onOpenModal('delete', edu)" class="btn btn-outline-light tooltips" data-placement="right" data-toggle="tooltip" data-original-title="Delete" data-target="#deleteEducationModal"><i class="fa fa-times fa2-xs"></i
