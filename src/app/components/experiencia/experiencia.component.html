@@ -11,9 +11,9 @@
         <div>
             <ul>
                 <li class="row" *ngFor="let exp of experiencias">
-                    <p class="col-2">{{ exp.periodoExp }}</p>
-                    <p class="col-3">{{ exp.tituloExp }}</p>
-                    <p class="col-3">{{ exp.institucionExp }}</p>
+                    <p class="col-lg-2">{{ exp.periodoExp }}</p>
+                    <p class="col-lg-3">{{ exp.tituloExp }}</p>
+                    <p class="col-lg-5">{{ exp.institucionExp }}</p>
                     <p *ngIf="isAdmin" class="col">
                         <a (click)="onOpenModal('edit', exp)" class="btn btn-outline-light tooltips" data-placement="left" data-toggle="tooltip" data-original-title="Edit" data-target="#editExperienciaModal"><i class="fa fa-pencil fa2-xs"></i
             ></a>

@@ -9,12 +9,14 @@
 
 #main-container {
     position: relative;
-    top: 15%;
+    top: 5%;
+    width: 60%;
+    margin: 0 auto;
 
 }
 
 ul {
-    margin-left: 30em;
+    margin-left: 3em;
     font-size: large;
 }
 
@@ -48,6 +50,6 @@ a.nav-link:hover {
 
 #button-add {
     position: relative;
-    left: 79.5%;
+    left: 68%;
     color: black
 }

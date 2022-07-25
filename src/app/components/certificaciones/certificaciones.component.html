@@ -12,10 +12,10 @@
             <ul>
                 <li class="row" *ngFor="let cert of certificaciones">
                     <p class="col-2"><img src={{cert.iconoCer}} width="50px"></p>
-                    <p class="col-3 pt-2">{{cert.nombreCer}}</p>
+                    <p class="col-4 pt-2">{{cert.nombreCer}}</p>
                     <p class="col-3 pt-2">
                         <a href="{{cert.linkCer}}">link</a></p>
-                    <p class="col">
+                    <p class="col-3">
                         <a *ngIf="isAdmin" (click)="onOpenModal('edit', cert)" class="btn btn-outline-light tooltips" data-placement="left" data-toggle="tooltip" data-original-title="Edit" data-target="#editCertificacionesModal"><i class="fa fa-pencil fa2-xs"></i
                         ></a>
                         <a *ngIf="isAdmin" (click)="onOpenModal('delete', cert)" class="btn btn-outline-light tooltips" data-placement="right" data-toggle="tooltip" data-original-title="Delete" data-target="#deleteCertificacionesModal"><i class="fa fa-times fa2-xs"></i

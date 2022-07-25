@@ -9,11 +9,13 @@
 
 #main-container {
     position: relative;
-    top: 25%
+    top: 15%;
+    width: max-content;
+    margin: 0 auto;
 }
 
 ul {
-    margin-left: 20em;
+    
     font-size: large;
 }
 
@@ -56,6 +58,6 @@ img {
 
 #button-add {
     position: relative;
-    left: 82%;
+    left: 62%;
     color: black
 }

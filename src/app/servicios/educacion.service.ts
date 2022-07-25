@@ -8,8 +8,8 @@ import { Educacion } from '../model/educacion';
   providedIn: 'root'
 })
 export class EducacionService {
-//private apiServerUrl = "https://rsportfolio-argprog.herokuapp.com";
-private apiServerUrl = "http://localhost:8080"
+private apiServerUrl = "https://ap-portfolio-rs.herokuapp.com";
+//private apiServerUrl = "http://localhost:8080"
   
 
   constructor(private http: HttpClient) { }

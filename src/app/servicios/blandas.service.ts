@@ -9,8 +9,8 @@ import { Blandas } from '../model/habilidades blandas';
 })
 export class BlandasService {
 
-  //private apiServerUrl = "https://rsportfolio-argprog.herokuapp.com";
-  private apiServerUrl = "http://localhost:8080"
+  private apiServerUrl = "https://ap-portfolio-rs.herokuapp.com";
+  //private apiServerUrl = "http://localhost:8080"
   
   constructor(private http: HttpClient) { }
 

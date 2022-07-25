@@ -9,8 +9,8 @@ import { Duras } from '../model/habilidades duras';
 })
 
 export class DurasService {
-//private apiServerUrl = "https://rsportfolio-argprog.herokuapp.com";
-private apiServerUrl = "http://localhost:8080"
+private apiServerUrl = "https://ap-portfolio-rs.herokuapp.com";
+// private apiServerUrl = "http://localhost:8080"
   
   constructor(private http: HttpClient) { }
 

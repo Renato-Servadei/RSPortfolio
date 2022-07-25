@@ -1,20 +1,24 @@
 .exp {
     height: 100vh;
-    padding-top: 10em;
+    padding-top: 6em;
     color: white;
     text-shadow: 1px 1px 1px black;
     background-image: url(../../../assets/bg-masthead.jpg);
     background-size: cover;
+    outline: 1px solid red;
 }
 
+
 #main-container {
-    position: relative;
-    top: 20%
+    position: relative;    
+    width: max-content;
+    margin: 6em auto;
 }
 
 ul {
-    margin-left: 20em;
     font-size: large;
+    margin-left: 8em;
+
 }
 
 a.nav-link {
@@ -46,6 +50,6 @@ a.nav-link:hover {
 
 #button-add {
     position: relative;
-    left: 76%;
+    left: 74%;
     color: black
 }

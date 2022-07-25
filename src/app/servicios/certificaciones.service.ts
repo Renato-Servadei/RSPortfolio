@@ -8,8 +8,8 @@ import { Certificaciones } from '../model/certificaciones';
   providedIn: 'root'
 })
 export class CertificacionesService {
-  //private apiServerUrl = "https://rsportfolio-argprog.herokuapp.com";
-  private apiServerUrl = "http://localhost:8080"
+  private apiServerUrl = "https://ap-portfolio-rs.herokuapp.com";
+  // private apiServerUrl = "http://localhost:8080"
   
 
   constructor(private http: HttpClient) { }
